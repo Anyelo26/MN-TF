@@ -19,11 +19,14 @@ class tema(TemplateView):
 class indice(TemplateView):
     template_name = 'indice.html'
 
-class biseccion(HttpRequest):
+class biseccion(TemplateView):
+    template_name='biseccion/tema.html'
+    
+#class biseccion(HttpRequest):
     #template_name=''
-	def recogerIntroduccion(self,request):
-		introduccion =Metodo.objects.get(Nombre="Biseccion")
-        return render (request, "biseccion/IntroduccionTema.html",{"intro":introduccion})
+#	def recogerIntroduccion(self,request):
+#		introduccion =Metodo.objects.get(Nombre="Biseccion")
+#        return render (request, "biseccion/IntroduccionTema.html",{"intro":introduccion})
 
 class falsaposicion(TemplateView):
     template_name = 'falsaposicion/tema.html'
