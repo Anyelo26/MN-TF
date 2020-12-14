@@ -45,23 +45,28 @@
     <section class="get_in_touch">
         <h1 class="title">Método de Punto Fijo</h1>
         <div class="container">
-            <div class="contact-form row">
+            <form  class="contact-form row" action="ResultPuntoFijo" method='POST'>
+                {% csrf_token %}
                 <div class="form-field col-lg-12">
-                    <input id="funcion" class="input-text" type="text" name="">
-                    <label for="funcion" class="label">Función</label>
+                    <input id="funcion" class="input-text" type="text" name="pol">
+                    <label for="funcion" class="label">Polinomio Despejado</label>
                 </div>
                 <div class="form-field col-lg-6">
-                    <input id="inicialx0" class="input-text" type="number" name="">
+                    <input id="inicialx0" class="input-text" type="text" name="pInicial">
                     <label for="inicialx0" class="label">Valor inicial x0</label>
                 </div>
                 <div class="form-field col-lg-6">
-                    <input id="tolerancia" class="input-text" type="number" name="">
-                    <label for="tolerancia" class="label">Precisión</label>
+                    <input id="tolerancia" class="input-text" type="text" name="tol">
+                    <label for="tolerancia" class="label">Tolerancia deseada</label>
+                </div>
+                <div class="form-field col-lg-6">
+                    <input id="tolerancia" class="input-text" type="text" name="iteraciones">
+                    <label for="tolerancia" class="label">Iteraciones</label>
                 </div>
                 <div class="form-field col-lg-12 derecha">
-                    <input class="submit-btn" type="submit" value="calcular" name="">
+                    <input class="submit-btn" type="submit">
                 </div>
-            </div>
+            </form>
         </div>
     </section>
 
@@ -80,6 +85,9 @@
     
     <!-- Global Init -->
     <script src="{% static 'js/custom.js' %}"></script>
+
+    {% block content %}    
+    {% endblock %}
 
   </body>
 </html>

@@ -1,0 +1,53 @@
+{% extends 'puntofijo/calculadora.html' %}
+
+{% block content %}        
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+        .tablaResultados{
+            border-collapse: collapse;
+        }
+        td, tr /* Poner borde en td y th */
+        {
+            border: 1px solid black;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="div_centrado">
+        <h2>
+            Respuesta:
+        </h3>
+        <div>
+            <img src="plot" width="600px" />
+        </div>
+        <table class="tablaResultados">
+            <tr>
+               <td >Iteración</td> 
+               <td >Valor</td> 
+            </tr>
+            
+            {% if resp%}
+                {% for i in resp %}
+                <tr>
+                    <td >1++</td>
+                    <td rows="5" cols="30" name="iteraciones">{{i}}</td>
+                </tr>
+                {% endfor %}
+            {% endif %}
+        </table>
+
+       
+    </div>
+   
+</body>
+</html>
+<!-- subida de archivo 0-->
+{% endblock %}
