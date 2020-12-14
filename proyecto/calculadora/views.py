@@ -7,7 +7,6 @@ from calculadora.models import Metodo
 # Create your views here.
 
 class index(TemplateView):
-
     template_name = 'index.html'
 
 class curso(TemplateView):
@@ -18,6 +17,9 @@ class tema(TemplateView):
 
 class indice(TemplateView):
     template_name = 'indice.html'
+
+class quiz(TemplateView):
+    template_name='quiz.html'
 
 class biseccion(TemplateView):
     template_name='biseccion/tema.html'

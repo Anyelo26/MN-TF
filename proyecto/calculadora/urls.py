@@ -8,6 +8,7 @@ urlpatterns = [
     path('tema', tema.as_view(), name = 'tema'),
     path('curso', curso.as_view(), name = 'curso'),
     path('indice', indice.as_view(), name = 'indice'),
+    path('quiz', quiz.as_view(), name='quiz'),
     path('biseccion', biseccion.as_view(), name = 'biseccion'),
     path('falsaposicion', falsaposicion.as_view(), name = 'falsaposicion'),
     path('puntofijo', puntofijo.as_view(), name = 'puntofijo'),
