@@ -22,4 +22,10 @@ urlpatterns = [
     path('newtonCalculadora', newtonCalculadora.as_view(), name = 'newtonCalculadora'),
     path('mullerCalculadora', mullerCalculadora.as_view(), name = 'mullerCalculadora'),
     path('bairstowCalculadora', bairstowCalculadora.as_view(), name = 'bairstowCalculadora'),
+    path('ResultBiseccion',views.Biseccion,name='ResultBiseccion'),
+    path('ResultFalsaPosicion',views.FalsaPosicion,name='ResultFalsaPosicion'),
+    path('ResultPuntoFijo',views.PuntoFijo,name='ResultPuntoFijo'),
+    path('ResultNewton',views.Newton,name='ResultNewtonRaphson'),
+    path('ResultSecante',views.Secante,name='ResultSecante'),
+    path('plot', views.plot, name='plot'),
 ]
