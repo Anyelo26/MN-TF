@@ -90,6 +90,7 @@ html, body {
 
 a {
   text-decoration: none !important;
+  font-size: 20px !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -1610,36 +1611,18 @@ preloader
   }
 }
 
-
-/* scroll */
-.scrollable {
-  height: 480px;
-  overflow: scroll; 
-}
-
-.scrollable .row {
-  width: 660px;
-  margin: 17px auto 0;
-  box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
-  border-radius: 10px;
-  padding: 25px;
-  text-indent: 3em;
-}
-
 ol{
   counter-reset: li;
   list-style-type: none;
 }
 
 ol > li::before {
-  font-size: 30px;
+  font-size: 25px;
   content: counter(li);
-  counter-increment: li;
   padding: 4px 15px;
   width: 25px;
   height: 25px;
   margin-right: 8px;
-  line-height: 35px;
   background: #B66CFF;
   color: white;
   border-radius: 50%;
@@ -1649,10 +1632,6 @@ ol > li::before {
 
 .borde {
   box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
-  border-radius: 10px;
+  border-radius: 30px;
   padding: 20px 30px;
-}
-
-.col-8 {
-  margin-left: 180px;
 }

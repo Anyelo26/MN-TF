@@ -21,7 +21,7 @@ class indice(TemplateView):
 
 class biseccion(TemplateView):
     template_name='biseccion/tema.html'
-    
+
 #class biseccion(HttpRequest):
     #template_name=''
 #	def recogerIntroduccion(self,request):
@@ -51,3 +51,24 @@ class bairstow(TemplateView):
     #def recogerIntroduccion(self,request):
 	#	introduccion =Metodo.objects.get(Nombre="Biseccion")
     #	return render (request, "biseccion/IntroduccionTema.html",{"intro":introduccion})
+
+class biseccionCalculadora(TemplateView):
+    template_name = 'biseccion/calculadora.html'
+
+class falsaposicionCalculadora(TemplateView):
+    template_name = 'falsaposicion/calculadora.html'
+
+class puntofijoCalculadora(TemplateView):
+    template_name = 'puntofijo/calculadora.html'
+
+class secanteCalculadora(TemplateView):
+    template_name = 'secante/calculadora.html'
+
+class newtonCalculadora(TemplateView):
+    template_name = 'newton/calculadora.html'
+
+class mullerCalculadora(TemplateView):
+    template_name = 'muller/calculadora.html'
+
+class bairstowCalculadora(TemplateView):
+    template_name = 'bairstow/calculadora.html'

@@ -96,7 +96,7 @@
             </div>
             <div class="col-md-9">
                 <div class="scrollable">
-                    <h2>Método de Newton-Raphson</h2>
+                    <h2>Método de Bisección</h2>
                     <table id="primero">
                         <thead>
                             <tr>
@@ -106,11 +106,10 @@
                         <hr>
                         <tbody>
                             <tr>
-                                <td>
-                                    El método de Newton (conocido también como el método de Newton-Raphson o el método de Newton-Fourier) es un algoritmo para encontrar aproximaciones de los ceros o raíces de una función real. También puede ser usado para encontrar el máximo o mínimo de una función, encontrando los ceros de su primera derivada.
-                                    <br>
-                                    <img src="{% static 'img/teoria/newton.png' %}" style="width:40%" alt="" class="mx-auto d-block">                                    
-                                </td>
+                                <td>El método de bisección es un algoritmo de búsqueda de raíces que trabaja dividiendo el intervalo a la mitad y seleccionando el subintervalo que tiene la raíz. Esto se logra llevar a cabo a través de varias interacciones que son aplicadas en un intervalo para por medio de ello encontrar la raíz de la función.
+								Este es uno de los métodos más sencillos de fácil intuición para resolver ecuaciones en una variable, también conocido como método del intervalo medio, este se basa en el teorema del valor intermedio. <br>
+								<img src="{% static 'img/teoria/biseccion.png' %}" alt="" class="mx-auto d-block">
+								</td>
                             </tr>
                         </tbody>
                     </table>
@@ -125,10 +124,24 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    El método de Newton es un método abierto, en el sentido de que no está garantizada su convergencia global. La única manera de alcanzar la convergencia es seleccionar un valor inicial lo suficientemente cercano a la raíz buscada. Así, se ha de comenzar la iteración con un valor razonablemente cercano al cero (denominado punto de arranque o valor supuesto). La relativa cercanía del punto inicial a la raíz depende mucho de la naturaleza de la propia función; si ésta presenta múltiples puntos de inflexión o pendientes grandes en el entorno de la raíz, entonces las probabilidades de que el algoritmo diverja aumentan, lo cual exige seleccionar un valor supuesto cercano a la raíz. Una vez que se ha hecho esto, el método linealiza la función por la recta tangente en ese valor supuesto. La abscisa en el origen de dicha recta será, según el método, una mejor aproximación de la raíz que el valor anterior. Se realizarán sucesivas iteraciones hasta que el método haya convergido lo suficiente.<br><br>
-                                    Sea f: [a, b] -> función derivable definida en el intervalo real [a, b]. Empezamos con un valor inicial x0 y definimos para cada número natural n.
-                                    <img src="{% static 'img/teoria/form.png' %}" style="width:20%" alt="" class="mx-auto d-block">
-                                </td>
+                                Este método consiste en dividir el intervalo que contiene la raíz en dos subintervalos del mismo tamaño, se evalúan los extremos y el punto medio en la función para determinar los signos de f en dichos puntos, basados en el teorema del valor intermedio, explicado en la sección de búsquedas incrementales, se decide cual de lo subintervalos es el que contiene la raíz, para continuar con el proceso. Cuando se aplican los pasos anteriores de forma repetida, se origina una sucesión de valores formado por los puntos medios obtenidos en cada iteración. La sucesión converge a uno de las raíces de la ecuación.<br><br>
+                                <strong>PRIMER PASO</strong><br>
+								Consiste en considerar un intervalo (xi, xd) en el que se garantice que la función tiene raíz.<br>
+								<img src="{% static 'img/teoria/primerpaso.png' %}" alt="" style="width:40%" class="mx-auto d-block"><br><br>
+								<strong>SEGUNDO PASO</strong><br>
+								El segmento se divide en dos, tomando el punto de bisección xr como aproximación de la raíz buscada.
+								<img src="{% static 'img/teoria/segundopaso.png' %}" alt="" style="width:40%" class="mx-auto d-block"><br><br>
+								<strong>TERCER PASO</strong>
+								<ul>
+									<li>
+										- Si xr es la raíz buscada - f(xr)=0 – fin de proceso
+									</li>
+									<li>
+										- Si no, determinar en cual de las dos mitades se encuentra la raíz
+									</li>
+								</ul>
+								<img src="{% static 'img/teoria/tercerpaso.png' %}" alt="" style="width:60%" class="mx-auto d-block">
+								</td>
                             </tr>
                         </tbody>
                     </table>
@@ -142,7 +155,7 @@
                         <hr>
                         <tbody>
                             <tr>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit error, dolor sapiente laboriosam delectus, maiores. Voluptatum molestiae corrupti quibusdam expedita voluptates similique in hic, labore nobis praesentium harum atque facilis? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident officia cupiditate ipsa neque saepe nam aspernatur, vitae rerum sapiente explicabo porro voluptatum asperiores suscipit consequatur ipsum quisquam beatae at recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, eius? Esse, nemo. Nobis repudiandae, veritatis libero perferendis sapiente nemo expedita nam necessitatibus, non quia? Illo esse quisquam, soluta delectus enim. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque placeat nihil ex corrupti odit porro facere quo voluptas distinctio nulla tempore at amet, natus! Fugit natus consequuntur itaque quas iusto! Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis exercitationem nihil animi id, assumenda, vitae quasi rem cum natus saepe ratione molestias, repellat enim, soluta. Vero iste sit eaque nostrum.</td>
+                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem dolores debitis hic fugit, expedita fuga modi est ipsam facilis quisquam. Quaerat sequi blanditiis rerum possimus pariatur sapiente ipsum praesentium voluptatum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate impedit dolorem ad officiis voluptas expedita excepturi illum incidunt ducimus nulla quod dicta aliquam doloribus quos sunt, aliquid vero minus necessitatibus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, eius? Esse, nemo. Nobis repudiandae, veritatis libero perferendis sapiente nemo expedita nam necessitatibus, non quia? Illo esse quisquam, soluta delectus enim. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque placeat nihil ex corrupti odit porro facere quo voluptas distinctio nulla tempore at amet, natus! Fugit natus consequuntur itaque quas iusto! Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis exercitationem nihil animi id, assumenda, vitae quasi rem cum natus saepe ratione molestias, repellat enim, soluta. Vero iste sit eaque nostrum.</td>
                             </tr>
                         </tbody>
                     </table>

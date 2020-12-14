@@ -15,4 +15,11 @@ urlpatterns = [
     path('newton', newton.as_view(), name = 'newton'),
     path('muller', muller.as_view(), name = 'muller'),
     path('bairstow', bairstow.as_view(), name = 'bairstow'),
+    path('biseccionCalculadora', biseccionCalculadora.as_view(), name = 'biseccionCalculadora'),
+    path('falsaposicionCalculadora', falsaposicionCalculadora.as_view(), name = 'falsaposicionCalculadora'),
+    path('puntofijoCalculadora', puntofijoCalculadora.as_view(), name = 'puntofijoCalculadora'),
+    path('secanteCalculadora', secanteCalculadora.as_view(), name = 'secanteCalculadora'),
+    path('newtonCalculadora', newtonCalculadora.as_view(), name = 'newtonCalculadora'),
+    path('mullerCalculadora', mullerCalculadora.as_view(), name = 'mullerCalculadora'),
+    path('bairstowCalculadora', bairstowCalculadora.as_view(), name = 'bairstowCalculadora'),
 ]

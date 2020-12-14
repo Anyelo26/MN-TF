@@ -10,34 +10,45 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
 
     <title>Métodos Numéricos</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}">
 
     <link rel="stylesheet" href="{% static 'css/tema.css' %}">
-    <!-- Additional CSS Files 
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap2.min.css' %}"> 
-    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome2.css' %}"> 
 
-    <link rel="stylesheet" href="{% static 'css/tema.css' %}">
+    <style>
+        table {
+            border-collapse: collapse;
+            color: #3f3f3f;
+            text-indent: initial;
+            border-spacing: 2px;
+        }
+        table th {
+            background-color: #f0f0f0;
+            border: 1px solid #dedede;
+            border-bottom-color: #c9c9c9;
+        }
+        table th, table td {
+            padding: 10px 15px;
+        }
 
-    CSS here
-    <link rel="stylesheet" type="text/css" href="{% static 'css/estilo.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">-->
-    <!--<link rel="stylesheet" href="{% static 'css/slicknav.css' %}">-->
-    <!--<link rel="stylesheet" href="{% static 'css/flaticon.css' %}">-->
-    <!-- <link rel="stylesheet" href="{% static 'css/progressbar_barfiller.css' %}"> -->
-    <!--<link rel="stylesheet" href="{% static 'css/gijgo.css' %}">-->
-    <!--<link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/animated-headline.css' %}">
-    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">-->
-    <!--<link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">-->
-    <!--<link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">-->
-    <!--<link rel="stylesheet" href="{% static 'css/slick.css' %}">-->
-    <!--<link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">-->
+        th {
+            text-align: inherit;
+        }
+        table td {
+            border: 1px solid #e8e8e8;
+        }
+        td {
+            display: table-cell;
+            vertical-align: inherit;
+        }
+        h2{
+            padding: 10px 15px;    
+        }
+    </style>
+
     </head>
     
     <body>
@@ -68,27 +79,18 @@
                             <li><svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
                             <path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1 0 13.5 8a.5.5 0 0 1 1 0 6.5 6.5 0 1 1-3.25-5.63.5.5 0 1 1-.5.865A5.472 5.472 0 0 0 8 2.5z"/>
-                            </svg><a href="{% url '' %}"> Introducción al tema</a></li>
+                            </svg><a href="#primero"> Introducción al tema</a></li>
                             <hr>
                             <li><svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
                             <path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1 0 13.5 8a.5.5 0 0 1 1 0 6.5 6.5 0 1 1-3.25-5.63.5.5 0 1 1-.5.865A5.472 5.472 0 0 0 8 2.5z"/>
-                            </svg><a href="{% url '' %}"> Descripción del tema</a></li>
+                            </svg><a href="#segundo"> Descripción del tema</a></li>
                             <hr>
                             <li><svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
                             <path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1 0 13.5 8a.5.5 0 0 1 1 0 6.5 6.5 0 1 1-3.25-5.63.5.5 0 1 1-.5.865A5.472 5.472 0 0 0 8 2.5z"/>
-                            </svg><a href="{% url '' %}"> Ejemplos prácticos</a></li>
-                            <hr>
-                            <li><svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
-                            <path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1 0 13.5 8a.5.5 0 0 1 1 0 6.5 6.5 0 1 1-3.25-5.63.5.5 0 1 1-.5.865A5.472 5.472 0 0 0 8 2.5z"/>
-                            </svg><a href="{% url '' %}"> Práctica Teórica</a></li>
-                            <hr>
-                            <li><svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
-                            <path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1 0 13.5 8a.5.5 0 0 1 1 0 6.5 6.5 0 1 1-3.25-5.63.5.5 0 1 1-.5.865A5.472 5.472 0 0 0 8 2.5z"/>
-                            </svg><a href="{% url '' %}"> Ejercicios prácticos</a></li>
+                            </svg><a href="#tercero"> Ejemplos prácticos</a></li>
+                            
                         </ol>
                     </div>
                 </div>
@@ -96,24 +98,65 @@
             <div class="col-md-9">
                 <div class="scrollable">
                     <h2>Método de Bairstow</h2>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore perferendis dolor ad beatae recusandae similique officiis excepturi saepe hic, accusamus veniam, ipsa ipsum nemo error. Excepturi quas explicabo cum, quaerat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores reprehenderit, totam magni fugit cupiditate dolores possimus delectus velit quod accusamus id esse dignissimos. Vero modi fugiat praesentium assumenda debitis veniam?
-                    Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Itaque vel rerum iusto tempore totam maxime, explicabo fugit voluptas cupiditate cum excepturi facere animi quisquam alias, consequuntur tempora nostrum odit iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga ipsam officiis eligendi, et eum repellat, nesciunt soluta at vel totam quisquam minus nemo ducimus vitae similique hic minima temporibus! Dicta!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore perferendis dolor ad beatae recusandae similique officiis excepturi saepe hic, accusamus veniam, ipsa ipsum nemo error. Excepturi quas explicabo cum, quaerat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores reprehenderit, totam magni fugit cupiditate dolores possimus delectus velit quod accusamus id esse dignissimos. Vero modi fugiat praesentium assumenda debitis veniam?
-                    Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Itaque vel rerum iusto tempore totam maxime, explicabo fugit voluptas cupiditate cum excepturi facere animi quisquam alias, consequuntur tempora nostrum odit iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga ipsam officiis eligendi, et eum repellat, nesciunt soluta at vel totam quisquam minus nemo ducimus vitae similique hic minima temporibus! Dicta!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore perferendis dolor ad beatae recusandae similique officiis excepturi saepe hic, accusamus veniam, ipsa ipsum nemo error. Excepturi quas explicabo cum, quaerat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores reprehenderit, totam magni fugit cupiditate dolores possimus delectus velit quod accusamus id esse dignissimos. Vero modi fugiat praesentium assumenda debitis veniam?
-                    Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Itaque vel rerum iusto tempore totam maxime, explicabo fugit voluptas cupiditate cum excepturi facere animi quisquam alias, consequuntur tempora nostrum odit iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga ipsam officiis eligendi, et eum repellat, nesciunt soluta at vel totam quisquam minus nemo ducimus vitae similique hic minima temporibus! Dicta!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore perferendis dolor ad beatae recusandae similique officiis excepturi saepe hic, accusamus veniam, ipsa ipsum nemo error. Excepturi quas explicabo cum, quaerat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores reprehenderit, totam magni fugit cupiditate dolores possimus delectus velit quod accusamus id esse dignissimos. Vero modi fugiat praesentium assumenda debitis veniam?
-                    Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Itaque vel rerum iusto tempore totam maxime, explicabo fugit voluptas cupiditate cum excepturi facere animi quisquam alias, consequuntur tempora nostrum odit iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga ipsam officiis eligendi, et eum repellat, nesciunt soluta at vel totam quisquam minus nemo ducimus vitae similique hic minima temporibus! Dicta!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore perferendis dolor ad beatae recusandae similique officiis excepturi saepe hic, accusamus veniam, ipsa ipsum nemo error. Excepturi quas explicabo cum, quaerat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores reprehenderit, totam magni fugit cupiditate dolores possimus delectus velit quod accusamus id esse dignissimos. Vero modi fugiat praesentium assumenda debitis veniam?
-                    Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Itaque vel rerum iusto tempore totam maxime, explicabo fugit voluptas cupiditate cum excepturi facere animi quisquam alias, consequuntur tempora nostrum odit iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga ipsam officiis eligendi, et eum repellat, nesciunt soluta at vel totam quisquam minus nemo ducimus vitae similique hic minima temporibus! Dicta!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore perferendis dolor ad beatae recusandae similique officiis excepturi saepe hic, accusamus veniam, ipsa ipsum nemo error. Excepturi quas explicabo cum, quaerat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores reprehenderit, totam magni fugit cupiditate dolores possimus delectus velit quod accusamus id esse dignissimos. Vero modi fugiat praesentium assumenda debitis veniam?
-                    Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Itaque vel rerum iusto tempore totam maxime, explicabo fugit voluptas cupiditate cum excepturi facere animi quisquam alias, consequuntur tempora nostrum odit iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga ipsam officiis eligendi, et eum repellat, nesciunt soluta at vel totam quisquam minus nemo ducimus vitae similique hic minima temporibus! Dicta!
+                    <table id="primero">
+                        <thead>
+                            <tr>
+                                <th>Introducción</th>
+                            </tr>
+                        </thead>
+                        <hr>
+                        <tbody>
+                            <tr>
+                                <td>El método de Bairstow es un algoritmo eficiente de búsqueda de las raíces de un polinomio real de grado arbitrario. Es un método iterativo, basado en el método de Müller y de Newton Raphson. Dado un polinomio  fn(x) se encuentran dos factores, un polinomio cuadrático<br>
+                                <img src="{% static 'img/teoria/formula2.png' %}" style="width:20%" alt="" class="mx-auto d-block">                                
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                   
+                    <table id="segundo">
+                        <thead>
+                            <tr>
+                                <th>Descripción</th>
+                            </tr>
+                        </thead>
+                        <hr>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    1) Debemos localizar en el problema fn(x) y r<sub>0</sub> y s<sub>0</sub> (los valores iniciales)
+                                    <br><br>
+                                    2) Ahora, utilizando el método de Newton-Rapshon (explicado en otro artículo) calculamos:
+                                    <img src="{% static 'img/teoria/l1.png' %}" style="width:20%" alt="" class="mx-auto d-block"> <br>
+                                    <img src="{% static 'img/teoria/l2.png' %}" style="width:35%" alt="" class="mx-auto d-block"> <br><br>
+                                    3) Se hallan las raíces f2(x) utilizando la fórmula general
+                                    <br><br>
+                                    4) Calculamos:
+                                    <img src="{% static 'img/teoria/l3.png' %}" style="width:23%" alt="" class="mx-auto d-block"> <br>
+                                    5) Ahora hacemos:
+                                    <img src="{% static 'img/teoria/l4.png' %}" style="width:15%" alt="" class="mx-auto d-block"><br>
+                                    6) En caso de que el polinomio sea de grado mayor que 3, volvemos al paso 2
 
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore perferendis dolor ad beatae recusandae similique officiis excepturi saepe hic, accusamus veniam, ipsa ipsum nemo error. Excepturi quas explicabo cum, quaerat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores reprehenderit, totam magni fugit cupiditate dolores possimus delectus velit quod accusamus id esse dignissimos. Vero modi fugiat praesentium assumenda debitis veniam?
-                    Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Itaque vel rerum iusto tempore totam maxime, explicabo fugit voluptas cupiditate cum excepturi facere animi quisquam alias, consequuntur tempora nostrum odit iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga ipsam officiis eligendi, et eum repellat, nesciunt soluta at vel totam quisquam minus nemo ducimus vitae similique hic minima temporibus! Dicta!
+                                    7) En caso contrario, terminamos el ejercicio.
 
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore perferendis dolor ad beatae recusandae similique officiis excepturi saepe hic, accusamus veniam, ipsa ipsum nemo error. Excepturi quas explicabo cum, quaerat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores reprehenderit, totam magni fugit cupiditate dolores possimus delectus velit quod accusamus id esse dignissimos. Vero modi fugiat praesentium assumenda debitis veniam?
-                    Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Itaque vel rerum iusto tempore totam maxime, explicabo fugit voluptas cupiditate cum excepturi facere animi quisquam alias, consequuntur tempora nostrum odit iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga ipsam officiis eligendi, et eum repellat, nesciunt soluta at vel totam quisquam minus nemo ducimus vitae similique hic minima temporibus! Dicta!
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table id="tercero">
+                        <thead>
+                            <tr>
+                                <th>Ejemplos prácticos</th>
+                            </tr>
+                        </thead>
+                        <hr>
+                        <tbody>
+                            <tr>
+                                <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, est enim. Corrupti odio, et fugiat saepe architecto quas ad consequuntur dolorum cumque quis quia quae ratione, assumenda dolorem dignissimos esse. Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Minima aliquam similique expedita. Sequi voluptatibus tempora at autem, perspiciatis qui dolorum porro sit dicta minima eaque fugit tenetur voluptatem nobis assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, eius? Esse, nemo. Nobis repudiandae, veritatis libero perferendis sapiente nemo expedita nam necessitatibus, non quia? Illo esse quisquam, soluta delectus enim. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque placeat nihil ex corrupti odit porro facere quo voluptas distinctio nulla tempore at amet, natus! Fugit natus consequuntur itaque quas iusto! Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis exercitationem nihil animi id, assumenda, vitae quasi rem cum natus saepe ratione molestias, repellat enim, soluta. Vero iste sit eaque nostrum.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

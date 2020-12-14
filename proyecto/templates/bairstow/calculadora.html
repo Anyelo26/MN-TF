@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
 
-    <title>Indice</title>
+    <title>Calculadora Bairstow</title>
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
 
     <!-- Additional CSS Files -->
@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}">
 
-    <link rel="stylesheet" href="{% static 'css/indice.css' %}">
+    <link rel="stylesheet" href="{% static 'css/calculadora.css' %}">
 
     </head>
     
@@ -41,35 +41,33 @@
         </div>
     </header>
     <!-- ***** Header Area End ***** -->
-    <br>
 
-    <div class="container">
-        <div class="row p-3 indice">
-
-            <div class="col-6">
-                <ol>
-                <li class="borde"><a href="{% url 'biseccionCalculadora' %}"> Calculadora de Método de Bisección</a></li>
-                <br>
-                <li class="borde" ><a href="{% url 'falsaposicionCalculadora' %}"> Calculadora de Método de Falsa Posición</a></li>
-                <br>
-                <li class="borde"><a href="{% url 'puntofijoCalculadora' %}"> Calculadora de Método del Punto Fijo</a></li>
-                <br>
-                <li class="borde"><a href="{% url 'secanteCalculadora' %}"> Calculadora de Método de la Secante</a></li>
-                <br>
-                </ol>
-            </div>
-            <div class="col-6">
-                <ol>
-                    <li class="borde"><a href="{% url 'newtonCalculadora' %}"> Calculadora de Método de Newton-Raphson</a></li>
-                    <br>
-                    <li class="borde"><a href="{% url 'mullerCalculadora' %}"> Calculadora de Método de Muller</a></li>
-                    <br>
-                    <li class="borde"><a href="{% url 'bairstowCalculadora' %}"> Calculadora de Método de Bairstow</a></li>
-                    <br>
-                </ol>
+    <section class="get_in_touch">
+        <h1 class="title">Método de Bairstow</h1>
+        <div class="container">
+            <div class="contact-form row">
+                <div class="form-field col-lg-12">
+                    <input id="funcion" class="input-text" type="text" name="">
+                    <label for="funcion" class="label">Polinomio</label>
+                </div>
+                <div class="form-field col-lg-6">
+                    <input id="inicialx0" class="input-text" type="number" name="">
+                    <label for="inicialx0" class="label">Valor inicial x0</label>
+                </div>
+                <div class="form-field col-lg-6">
+                    <input id="inicialx1" class="input-text" type="number" name="">
+                    <label for="inicialx1" class="label">Valor inicial x1</label>
+                </div>
+                <div class="form-field col-lg-6">
+                    <input id="tolerancia" class="input-text" type="number" name="">
+                    <label for="tolerancia" class="label">Tolerancia deseada</label>
+                </div>
+                <div class="form-field col-lg-12 derecha">
+                    <input class="submit-btn" type="submit" value="calcular" name="">
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- jQuery -->
     <script src="{% static 'js/jquery-2.1.0.min.js' %}"></script>
