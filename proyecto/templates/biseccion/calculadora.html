@@ -15,15 +15,13 @@
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
-
     <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}">
-
     <link rel="stylesheet" href="{% static 'css/calculadora.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/resultadoCalculadora.css' %}">   <!-- * Estilos de respuesta de calculadora * -->
 
     </head>
     
     <body>
-    
     <!-- ***** Header Area Start ***** -->
     <header class="header-area header-sticky">
         <div class="container-fluid">
@@ -48,15 +46,15 @@
             <form  class="contact-form row" action="ResultBiseccion" method='POST'>
                 {% csrf_token %}
                 <div class="form-field col-lg-12">
-                    <input id="funcion" class="input-text" type="text" name="pol">
+                    <input id="funcion" class="input-text" type="text" name="pol" required>
                     <label for="funcion" class="label">Polinomio</label>
                 </div>
                 <div class="form-field col-lg-6">
-                    <input id="inicialx0" class="input-text" type="text" name="a">
+                    <input id="inicialx0" class="input-text" type="text" name="a" required>
                     <label for="inicialx0" class="label">Valor inicial x0</label>
                 </div>
                 <div class="form-field col-lg-6">
-                    <input id="inicialx1" class="input-text" type="text" name="b">
+                    <input id="inicialx1" class="input-text" type="text" name="b" required>
                     <label for="inicialx1" class="label">Valor inicial x1</label>
                 </div>
                 <!--

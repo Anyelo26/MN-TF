@@ -25,6 +25,3 @@ def aTransformar(cad):
 	transformations=(standard_transformations+(implicit_multiplication_application,))	#almacenamiento de conversion a polinomio + 
 	var=parse_expr(conversion(cad),transformations=transformations)	#variable que trabaja con String, y la conversion del polinomio
 	return var
-
-#pol= input("ingrese polinomio: ")
-#print(aTransformar(pol))

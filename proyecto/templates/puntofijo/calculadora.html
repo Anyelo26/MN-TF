@@ -15,10 +15,9 @@
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
-
     <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}">
-
     <link rel="stylesheet" href="{% static 'css/calculadora.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/resultadoCalculadora.css' %}">   <!-- * Estilos de respuesta de calculadora * -->
 
     </head>
     
@@ -48,19 +47,23 @@
             <form  class="contact-form row" action="ResultPuntoFijo" method='POST'>
                 {% csrf_token %}
                 <div class="form-field col-lg-12">
-                    <input id="funcion" class="input-text" type="text" name="pol">
+                    <div class="form-field col-lg-12">
+                        <input id="funcion" class="input-text" type="text" name="pol" required>
+                        <label for="funcion" class="label">Polinomio Despejado</label>
+                    </div>
+                    <input id="funcion" class="input-text" type="text" name="polDespejado" required>
                     <label for="funcion" class="label">Polinomio Despejado</label>
                 </div>
                 <div class="form-field col-lg-6">
-                    <input id="inicialx0" class="input-text" type="text" name="pInicial">
+                    <input id="inicialx0" class="input-text" type="text" name="pInicial" required>
                     <label for="inicialx0" class="label">Valor inicial x0</label>
                 </div>
                 <div class="form-field col-lg-6">
-                    <input id="tolerancia" class="input-text" type="text" name="tol">
+                    <input id="tolerancia" class="input-text" type="text" name="tol" required>
                     <label for="tolerancia" class="label">Tolerancia deseada</label>
                 </div>
                 <div class="form-field col-lg-6">
-                    <input id="tolerancia" class="input-text" type="text" name="iteraciones">
+                    <input id="tolerancia" class="input-text" type="text" name="iteraciones" required>
                     <label for="tolerancia" class="label">Iteraciones</label>
                 </div>
                 <div class="form-field col-lg-12 derecha">

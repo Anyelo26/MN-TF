@@ -7,44 +7,58 @@
     <meta charset="UTF-8">
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        
-        .tablaResultados{
-            border-collapse: collapse;
-        }
-        td, tr /* Poner borde en td y th */
-        {
-            border: 1px solid black;
-        }
-
-    </style>
 </head>
 <body>
-    <div class="div_centrado">
-        <h2>
-            Respuesta:
-        </h3>
-        <div>
-            <img src="plot" width="600px" />
-        </div>
-        <table class="tablaResultados">
-            <tr>
-               <td >Iteración</td> 
-               <td >Valor</td> 
-            </tr>
-            
-            {% if resp%}
-                {% for i in resp %}
-                <tr>
-                    <td >1++</td>
-                    <td rows="5" cols="30" name="iteraciones">{{i}}</td>
-                </tr>
-                {% endfor %}
-            {% endif %}
-        </table>
+    <div class="container-fluid" style="margin-bottom: 20rem;">       
+        <div class="row">
+            <div style="margin:0 auto;">
+                {% if error %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert"> 
+                    <strong>ERROR: {{message}}</strong>
 
-       
+                </div>
+                {% else %}
+                <div > 
+                    <div class="alert alert-success alert-dismissible fade show" role="alert"> 
+                        <strong>GRÁFICA</strong>
+                    </div>
+                    <div class="card">
+                        <center><img src="plot" width="600px" /></center>
+                    </div>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert"> 
+                        <strong>RESPUESTA</strong>
+                    </div>
+                    <table class="table table-striped table-hover">
+                        <thread class="thread-green">
+                            <tr>
+                                <th >Iteración</th> 
+                                <th >X<sub>i</sub></th>
+                                <th >f<sub>(Xi)</sub></th>
+                                <th >f'<sub>(Xi)</sub></th> 
+                                <th >X<sub>i+1</sub></th>
+                                <th >Error absoluto</th> 
+                            </tr>
+                        </thread>
+                        
+                        
+                        {% if resp%}
+                            {% for i in resp %}
+                            <tr>
+                                <td >{{i.iter}}</td>
+                                <td >{{i.xi}}</td>
+                                <td >{{i.fxi}}</td>
+                                <td >{{i.fxidiff}}</td>
+                                <td >{{i.xii}}</td>
+                                <td >{{i.errorA}}</td>
+                            </tr>
+                            {% endfor %}
+                        {% endif %}
+                    </table>     
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
     </div>
    
 </body>

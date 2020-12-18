@@ -1,24 +1,42 @@
 #Implementación del método del punto fijo
 from math import *
 from . import conversor as cn
+import sympy as sp
 
-
-contenedor=[]       #arreglo contenedor contenedor[raices]
-def Rpuntofijo(cad, p0, tol, n): #Método del punto fijo
+      #arreglo contenedor contenedor[raices]
+def Rpuntofijo(cad,cadDesp, p0, tol, n): #Método del punto fijo
     f=cn.aTransformar(cad)
-    i = 1
-    while i<= n:
-        p = cn.evaluar(f,p0)
-        #print("Iter= ", "%03d" % i, "; p =", "%.14f" % p)
-        contenedor.append(float(p))
-        if abs(p-p0) < tol:
-            return contenedor
-        p0 = p
-        i +=1
-    #print("Iteraciones agotadas:Error!")
+    g=cn.aTransformar(cadDesp)
+    contenedor=[] 
+    x = sp.Symbol('x')
+    devGx= sp.diff(g,x) # derivada - salida simbolica
+
+    iter = 1
+    while iter<= n:
+        ansDictionary = {
+            "iter" : iter,
+            "x0" : round(float(p0),10)
+        }
+        try:
+            #if abs(cn.evaluar(devGx,p0)) < 1:
+            #    return -1  #No converge
+            p = cn.evaluar(g,p0)
+            paux = cn.evaluar(f,p0)
+            
+            ansDictionary["fx0"] = round(float(paux),12)
+            ansDictionary["gx0"] = round(float(p),12)
+            
+            errorAbs = abs(p-p0)
+            if errorAbs <= tol:
+                return contenedor
+            ansDictionary["errorA"] = round(float(errorAbs),12)
+            contenedor.append(ansDictionary)
+            p0 = p
+            iter +=1
+        except TypeError:
+            return -1   #No converge
     return contenedor
 
 #pol(x), po = 0.9, tol = 10^-10, n=100
 
-#print("Pol prueba")
 #puntofijo(pol_prima, 0, 0.00001, 12)

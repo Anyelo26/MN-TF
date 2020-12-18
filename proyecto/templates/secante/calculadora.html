@@ -15,10 +15,9 @@
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
-
     <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}">
-
     <link rel="stylesheet" href="{% static 'css/calculadora.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/resultadoCalculadora.css' %}">   <!-- * Estilos de respuesta de calculadora * -->
 
     </head>
     
@@ -48,27 +47,23 @@
             <form  class="contact-form row" action="ResultSecante" method='POST'>
                 {% csrf_token %}
                 <div class="form-field col-lg-12">
-                    <input id="funcion" class="input-text" type="text" name="pol">
+                    <input id="funcion" class="input-text" type="text" name="pol" required>
                     <label for="funcion" class="label">Polinomio</label>
                 </div>
                 <div class="form-field col-lg-6">
-                    <input id="inicialx0" class="input-text" type="text" name="fn">
-                    <label for="inicialx0" class="label">Ingrese fn</label>
+                    <input id="inicialx0" class="input-text" type="text" name="x0" required>
+                    <label for="inicialx0" class="label">Ingrese x0</label>
                 </div>
                 <div class="form-field col-lg-6">
-                    <input id="inicialx1" class="input-text" type="text" name="p0">
-                    <label for="inicialx1" class="label">Ingrese p0</label>
+                    <input id="inicialx1" class="input-text" type="text" name="x1" required>
+                    <label for="inicialx1" class="label">Ingrese x1</label>
                 </div>
                 <div class="form-field col-lg-6">
-                    <input id="inicialx1" class="input-text" type="text" name="p1">
-                    <label for="inicialx1" class="label">Ingrese p1</label>
+                    <input id="iter" class="input-text" type="text" name="iter" required>
+                    <label for="iter" class="label">Iteraciones</label>
                 </div>
                 <div class="form-field col-lg-6">
-                    <input id="inicialx1" class="input-text" type="text" name="n">
-                    <label for="inicialx1" class="label">Ingrese n</label>
-                </div>
-                <div class="form-field col-lg-6">
-                    <input id="tolerancia" class="input-text" type="text" name="tolerancia">
+                    <input id="tolerancia" class="input-text" type="text" name="tol" required>
                     <label for="tolerancia" class="label">Tolerancia deseada</label>
                 </div>
                 <div class="form-field col-lg-12 derecha">
