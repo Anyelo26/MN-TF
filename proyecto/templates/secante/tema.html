@@ -58,7 +58,12 @@
                             <li><svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
                             <path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1 0 13.5 8a.5.5 0 0 1 1 0 6.5 6.5 0 1 1-3.25-5.63.5.5 0 1 1-.5.865A5.472 5.472 0 0 0 8 2.5z"/>
-                            </svg><a href="#tercero"> Ejemplos prácticos</a></li>
+                            </svg><a href="#tercero"> Convergencia</a></li>
+                            <hr>
+                            <li><svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                            <path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1 0 13.5 8a.5.5 0 0 1 1 0 6.5 6.5 0 1 1-3.25-5.63.5.5 0 1 1-.5.865A5.472 5.472 0 0 0 8 2.5z"/>
+                            </svg><a href="#cuarto"> Ejemplos prácticos</a></li>
                         </ol>
                     </div>
                 </div>
@@ -93,18 +98,31 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    Es una variación del método de Newton-Raphson donde en vez de calcular la derivada de la función en el punto de estudio, teniendo en mente la definición de derivada, se aproxima la pendiente a la recta que une la función evaluada en el punto de estudio y en el punto de la iteración anterior. Este método es de especial interés cuando el coste computacional de derivar la función de estudio y evaluarla es demasiado elevado, por lo que el método de Newton no resulta atractivo.
-                                    <br><br>
-                                    En otras palabras, el método de la secante es un algoritmo de la raíz de investigación que utiliza una serie de raíces de las líneas secantes para aproximar mejor la raíz de una función f. El método de la secante se puede considerar como una aproximación en diferencias finitas del método de Newton-Raphson . Sin embargo, este método fue desarrollado independientemente de este último.
-                                    <br><br>
                                     El método se define por la relación de recurrencia: <br>
-                                    <img src="{% static 'img/teoria/formula.png' %}" style="width:20%" alt="" class="mx-auto d-block">
+                                    <img src="{% static 'img/teoria/formula.png' %}" style="width:25%" alt="" class="mx-auto d-block">
+                                    El método se basa en obtener la ecuación de la recta que pasa por los puntos (x<sub>n−1</sub>, f(x<sub>n−1</sub>)) y (x<sub>n</sub>, f(x<sub>n</sub>)). A dicha recta se le llama secante por cortar la gráfica de la función. En la imagen de arriba a la derecha se toman los puntos iniciales x<sub>0</sub> y x<sub>1</sub>, se construye una línea por los puntos (x<sub>0</sub>, f(x<sub>0</sub>)) y (x<sub>1</sub>, f(x<sub>1</sub>)). En forma punto-pendiente, esta línea tiene la ecuación mostrada anteriormente. Posteriormente se escoge como siguiente elemento de la relación de recurrencia, x<sub>n+1</sub>, la intersección de la recta secante con el eje de abscisas obteniendo la fórmula, y un nuevo valor. Seguimos este proceso, hasta llegar a un nivel suficientemente alto de precisión (una diferencia lo suficientemente pequeñas entre x<sub>n</sub> y x<sub>n-1</sub>).
+
                                 </td>
                             </tr>
                         </tbody>
                     </table>
 
                     <table id="tercero">
+                        <thead>
+                            <tr>
+                                <th>Convergencia</th>
+                            </tr>
+                        </thead>
+                        <hr>
+                        <tbody>
+                            <tr>
+                                <td>El orden de convergencia de este método, en un punto cercano a la solución, es <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/33ee699558d09cf9d653f6351f9fda0b2f4aaa3e"> donde <br>
+                                <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9dca95be2e8f341109ebf27e277f0f5fea65cc67"><br>
+                                es el número áureo, por lo que se trata de una convergencia superlineal inferior a la del método de Newton-Raphson. En caso de que la aproximación inicial sea demasiado lejana o la raíz no sea simple, este método no asegura la convergencia y tiene un comportamiento similar al de Newton-Raphson. </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table id="cuarto">
                         <thead>
                             <tr>
                                 <th>Ejemplos prácticos</th>

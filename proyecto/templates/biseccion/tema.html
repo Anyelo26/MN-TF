@@ -60,7 +60,12 @@
                             <li><svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
                             <path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1 0 13.5 8a.5.5 0 0 1 1 0 6.5 6.5 0 1 1-3.25-5.63.5.5 0 1 1-.5.865A5.472 5.472 0 0 0 8 2.5z"/>
-                            </svg><a href="#tercero"> Ejemplos prácticos</a></li>
+                            </svg><a href="#tercero"> Convergencia</a></li>
+                            <hr>
+                            <li><svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                            <path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1 0 13.5 8a.5.5 0 0 1 1 0 6.5 6.5 0 1 1-3.25-5.63.5.5 0 1 1-.5.865A5.472 5.472 0 0 0 8 2.5z"/>
+                            </svg><a href="#cuarto"> Ejemplos prácticos</a></li>
                         </ol>
                     </div>
                 </div>
@@ -118,6 +123,27 @@
                     </table>
 
                     <table id="tercero">
+                        <thead>
+                            <tr>
+                                <th>Demostración de la convergencia</th>
+                            </tr>
+                        </thead>
+                        <hr>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Suponiendo que se cumplen las condiciones iniciales para la puesta en práctica del algoritmo, definimos r como una raíz dentro del intervalo [a, b]. El intervalo de búsqueda en el n-ésimo paso tiene longitud: <br><br>
+                                    <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/085ae55784ab64014072c1f7cbc38b5de2303ace">
+                                    Como r<sub>n</sub>, que es la raíz n-ésima calculada, se encuentra siempre dentro del intervalo de búsqueda, tenemos entonces que:<br><br>
+                                    <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8f004ccc92680d3fb2b64a57509fa351163ade31"><br>
+                                    Tomando límites,<br><br>
+                                    <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ef24fb9dec5a7401dfb41ca9596abebb0d24050e"><br><br>
+                                    Queda demostrado entonces, que si se cumplen las condiciones iniciales del problema, el método de bisección converge al menos, a una de las raíces que se encuentran en el intervalo señalado.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table id="cuarto">
                         <thead>
                             <tr>
                                 <th>Ejemplos prácticos</th>

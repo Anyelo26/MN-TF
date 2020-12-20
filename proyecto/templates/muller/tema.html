@@ -116,7 +116,13 @@
                                     Teniendo como resultado los coeficientes:<br><br>
                                     <img src="{% static 'img/teoria/f6.png' %}" style="width:40%" alt="" class="mx-auto d-block"><br>
                                     Hallando la raíz, se implementará la solución convencional, pero debido al error de redondeo potencial, se usará una formulación alternativa.
-                                    <img src="{% static 'img/teoria/f7.png' %}" style="width:25%" alt="" class="mx-auto d-block">
+                                    <img src="{% static 'img/teoria/f7.png' %}" style="width:25%" alt="" class="mx-auto d-block"><br><br>
+                                    El signo del determinante se selecciona de tal manera que el denominador sea el más grande posible, esto garantiza que se escoja el intercepto X<sub>3</sub> más cercano a X<sub>2</sub>
+
+                                    Una de las ventajas del método radica en que, al usar la fórmula cuadrática, es capaz de hallar raíces complejas. La principal desventaja es que en cada iteración se descarta una posible raíz de la parábola sin conocer la naturaleza de la misma.
+
+                                    La convergencia de este método es del orden de 1.839 lo que lo hace más rapido que el método de la secante en el cual se basa(orden de 1.62), pero es más lento que otros métodos como el de Newton-Raphson cuya convergencia es cuadrática (de orden 2).<br>
+                                    
                                 </td>
                             </tr>
                         </tbody>

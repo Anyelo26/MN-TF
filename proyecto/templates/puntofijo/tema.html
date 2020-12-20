@@ -60,7 +60,12 @@
                             <li><svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
                             <path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1 0 13.5 8a.5.5 0 0 1 1 0 6.5 6.5 0 1 1-3.25-5.63.5.5 0 1 1-.5.865A5.472 5.472 0 0 0 8 2.5z"/>
-                            </svg><a href="#tercero"> Ejemplos prácticos</a></li>
+                            </svg><a href="#tercero"> Convergencia</a></li>
+                            <hr>
+                            <li><svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                            <path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1 0 13.5 8a.5.5 0 0 1 1 0 6.5 6.5 0 1 1-3.25-5.63.5.5 0 1 1-.5.865A5.472 5.472 0 0 0 8 2.5z"/>
+                            </svg><a href="#cuarto"> Ejemplos prácticos</a></li>
                         </ol>
                     </div>
                 </div>
@@ -77,7 +82,7 @@
                         <hr>
                         <tbody>
                             <tr>
-                                <td>Este método se basa en hacer que la raíz se convierta en un punto fijo e iterando hasta que se alcance dicha raíz.
+                                <td>El método del punto fijo es un método iterativo que permite resolver sistemas de ecuaciones no necesariamente lineales. En particular se puede utilizar para determinar raíces de una función de la forma f(x), siempre y cuando se cumplan los criterios de convergencia.<br>
                                 <img src="{% static 'img/teoria/puntofijo.png' %}" style="width:40%" alt="" class="mx-auto d-block">
                                 </td>
                             </tr>
@@ -103,7 +108,31 @@
                         </tbody>
                     </table>
 
-                    <table id="tercero">
+                    <table id="tercero" class="col-12">
+                        <thead>
+                            <tr>
+                                <th>Convergencia</th>
+                            </tr>
+                        </thead>
+                        <hr>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Supongamos que se cumplen las siguientes hipótesis: <br>
+                                    1. g(x) es una función de clase C<sup>1</sup>[a, b].<br>
+                                    2. g(x) ∈ [a, b] para todo x ∈ [a, b].<br>
+                                    3. max |g'(x)| = M<sub>1</sub> < 1. (x ∈ [a, b])<br>
+                                    Entonces, son ciertas las siguientes afirmaciones:<br>
+                                    1. La ecuación x = g(x) tiene solución única α en [a, b].<br>
+                                    2. La iteración de punto fijo x<sub>j+1</sub> = g(x<sub>j</sub> ) converge a la solución α para cualquier valor inicial x<sub>0</sub> ∈ (a, b).<br>
+                                    3. El error e<sub>j</sub> = α − x<sub>j</sub> , verifica la desigualdad <br>
+                                    |e<sub>j</sub>| ≤ M<sup>j</sup><sub>1</sub> (b − a).
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table id="cuarto">
                         <thead>
                             <tr>
                                 <th>Ejemplos prácticos</th>

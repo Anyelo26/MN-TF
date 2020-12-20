@@ -60,7 +60,12 @@
                             <li><svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
                             <path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1 0 13.5 8a.5.5 0 0 1 1 0 6.5 6.5 0 1 1-3.25-5.63.5.5 0 1 1-.5.865A5.472 5.472 0 0 0 8 2.5z"/>
-                            </svg><a href="#tercero"> Ejemplos prácticos</a></li>
+                            </svg><a href="#tercero"> Convergencia</a></li>
+                            <hr>
+                            <li><svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                            <path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1 0 13.5 8a.5.5 0 0 1 1 0 6.5 6.5 0 1 1-3.25-5.63.5.5 0 1 1-.5.865A5.472 5.472 0 0 0 8 2.5z"/>
+                            </svg><a href="#cuarto"> Ejemplos prácticos</a></li>
                         </ol>
                     </div>
                 </div>
@@ -105,6 +110,31 @@
                     </table>
 
                     <table id="tercero">
+                        <thead>
+                            <tr>
+                                <th>Convergencia</th>
+                            </tr>
+                        </thead>
+                        <hr>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    El orden de convergencia de este método es, por lo menos, cuadrático. Sin embargo, si la raíz buscada es de multiplicidad algebraica mayor a uno (i.e, una raíz doble, triple, …), el método de Newton-Raphson pierde su convergencia cuadrática y pasa a ser lineal de constante asintótica de convergencia 1-1/m, con m la multiplicidad de la raíz.
+
+                                    Existen numerosas formas de evitar este problema, como pudieran ser los métodos de aceleración de la convergencia tipo Δ² de Aitken o el método de Steffensen. <br><br>
+                                    <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4dfa5428dc7bb48d7497ca30dc58549b4a7a468d"><br><br>
+                                    Evidentemente, este método exige conocer de antemano la multiplicidad de la raíz, lo cual no siempre es posible. Por ello también se puede modificar el algoritmo tomando una función auxiliar g(x) = f(x)/f'(x), resultando:<br><br>
+                                    <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6176ce1bfeef2271fb47b2d69f87be5605d5a6f8"><br><br>
+                                    Su principal desventaja en este caso sería lo costoso que pudiera ser hallar g(x) y g'(x) si f(x) no es fácilmente derivable.
+
+                                    Por otro lado, la convergencia del método se demuestra cuadrática para el caso más habitual sobre la base de tratar el método como uno de punto fijo: si g '(r)=0, y g''(r) es distinto de 0, entonces la convergencia es cuadrática. Sin embargo, está sujeto a las particularidades de estos métodos.
+
+                                    Nótese de todas formas que el método de Newton-Raphson es un método abierto: la convergencia no está garantizada por un teorema de convergencia global como podría estarlo en los métodos de falsa posición o de bisección. Así, es necesario partir de una aproximación inicial próxima a la raíz buscada para que el método converja y cumpla el teorema de convergencia local.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table id="cuarto">
                         <thead>
                             <tr>
                                 <th>Ejemplos prácticos</th>
