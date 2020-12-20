@@ -10,7 +10,11 @@ def Rpuntofijo(cad,cadDesp, p0, tol, n): #Método del punto fijo
     contenedor=[] 
     x = sp.Symbol('x')
     devGx= sp.diff(g,x) # derivada - salida simbolica
-
+    
+    condi1=sp.sympify(g).subs(x,p0)
+    if abs(condi1)>1:
+        return False
+    
     iter = 1
     while iter<= n:
         ansDictionary = {

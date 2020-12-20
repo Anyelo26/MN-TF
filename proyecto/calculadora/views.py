@@ -159,8 +159,14 @@ def PuntoFijo(request):
         tol= float( request.POST['tol'] )
         iteraciones= int( request.POST['iteraciones'] )
         resp= Rpuntofijo(pol,polD,puntoInit,tol,iteraciones)
-        if ( resp == -1):
-            raise MyErrorInMethod("No converge")
+        if (resp ==False):
+            myError = {
+            "error" :True,
+            "message": "No existe convergencia"
+            }
+            return render(request,'puntofijo/resultado.html',context=myError)
+        #if ( resp == -1):
+            #raise MyErrorInMethod("No converge")
         return render(request,'puntofijo/resultado.html',{'resp':resp})
     except ValueError:
         myError = {
