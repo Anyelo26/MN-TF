@@ -3,11 +3,17 @@ import sympy
 def Rbiseccion(cad,lim1,lim2):    
     x=sympy.symbols('x')		#declaracion de variables
     poli=conversor.aTransformar(cad)        
-
+    
     if(lim1<lim2):
         a,b=lim1,lim2
     else:
         b,a=lim1,lim2        
+    
+    condi1=(sympy.sympify(poli).subs(x,a)>0 and sympy.sympify(poli).subs(x,b)<0)
+    condi2=(sympy.sympify(poli).subs(x,a)<0 and sympy.sympify(poli).subs(x,b)>0)
+    if not(condi1 or condi2):
+        return False
+    
     error=10    # error
     iter=1         #Contador de iteracion
     contenedor=[]       #arreglo contenedor contenedor[raices]

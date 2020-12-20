@@ -94,6 +94,12 @@ def Biseccion(request):
         a= int( request.POST['a'] )
         b= int( request.POST['b'] )
         resp= Rbiseccion(abc,a,b)
+        if (resp ==False):
+            myError = {
+            "error" :True,
+            "message": "No existe convergencia"
+            }
+            return render(request,'biseccion/resultado.html',context=myError)
         return render(request,'biseccion/resultado.html',{'resp':resp})
     except ValueError:
         myError = {
