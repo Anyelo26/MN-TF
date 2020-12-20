@@ -90,7 +90,7 @@ html, body {
 
 a {
   text-decoration: none !important;
-  font-size: 20px !important;
+  font-size: 18px !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -1617,12 +1617,13 @@ ol{
 }
 
 ol > li::before {
-  font-size: 25px;
   content: counter(li);
-  padding: 4px 15px;
+  counter-increment: li;
+  padding: 3px 8px;
   width: 25px;
   height: 25px;
   margin-right: 8px;
+  line-height: 35px;
   background: #B66CFF;
   color: white;
   border-radius: 50%;
@@ -1634,4 +1635,16 @@ ol > li::before {
   box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
   border-radius: 30px;
   padding: 20px 30px;
+  background-color: #E5E3E5;
+  border: 1px solid #ECC6F5;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+h3{
+  padding-bottom: 2px;
+  border-bottom: 1px solid #cccccc;
+  line-height: 30px;
+  color: #DB8C8C;
+  margin-bottom: 20px;
 }
