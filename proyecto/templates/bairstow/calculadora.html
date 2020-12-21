@@ -22,17 +22,20 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script  type="text/javascript">
      $(document).ready(function() {
+        var indice = 2
             $("#add").click(function() {
                 var intId = $("#buildyourform div").length + 1;
                 var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + intId + "\"/>");
-                var fName = $("<input type=\"text\" class=\"fieldname\" />");
+                var fName = $("<input class=\"input-text\" type=\"text\" name=\"coef"+(indice+1)+"\" placeholder=\"Coef. X grado "+(indice)+"\" required/>");
                 var removeButton = $("<input type=\"button\" class=\"remove\" value=\"Quitar\" />");
                 removeButton.click(function() {
                     $(this).parent().remove();
+                    indice = indice - 1
                 });
                 fieldWrapper.append(fName);
                 fieldWrapper.append(removeButton);
                 $("#buildyourform").append(fieldWrapper);
+                indice = indice +1
             });
         });
 
@@ -75,15 +78,24 @@
                 </div>
                 <div class="form-field col-lg-12">
                     <center>
-                   
-                    <fieldset id="buildyourform">
+                    
+                    <div class="form-field col-lg-8">
+                        <fieldset id="buildyourform">
                             <legend>Ingresa coeficientes del polinomio</legend>
-                            <input type="text" name="field_name[]" value=""/>
-                            <input type="text" name="field_name[]" value=""/>
+                            <div class="form-field col-lg-12">
+                                <input class="input-text" type="text"  name="coef1" placeholder="Coef. X grado 0" required/>
+                            </div>
+                            <div class="form-field col-lg-12">
+                                <input class="input-text" type="text" name="coef2" placeholder="Coef. X grado 1" required/>
+                            </div>
+                            
                         </fieldset>
+
+                    </div>
+                    
                      <div class="form-field col-lg-4">
                         
-                        <input type="button" value="Añadir" class="add" id="add" />
+                        <input type="button" value="Añadir" class="input-text" id="add" />
                     </div>
   
                     </center>

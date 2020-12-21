@@ -21,18 +21,11 @@
                 <div > 
                     <div class="alert alert-success alert-dismissible fade show" role="alert"> 
                         <strong>RESPUESTA</strong>
-                        <a class="btn btn-primary" href="{% url 'graficar'%}" style="margin-left: 10px;">Ver en gráfica</a>
                     </div>
                     <table class="table table-striped table-hover">
                         <thread class="thread-green">
                             <tr>
-                                <th >Iteración</th> 
-                                <th >X<sub>i-1</sub></th>
-                                <th >X<sub>i</sub></th>
-                                <th >f<sub>(Xi-1)</sub></th> 
-                                <th >f<sub>(Xi)</sub></th>
-                                <th >X<sub>i+1</sub></th>
-                                <th >Error absoluto</th> 
+                                <th >Raices</th> 
                             </tr>
                         </thread>
                         
@@ -40,13 +33,7 @@
                         {% if resp%}
                             {% for i in resp %}
                             <tr>
-                                <td >{{i.iter}}</td>
-                                <td >{{i.p0}}</td>
-                                <td >{{i.p1}}</td>
-                                <td >{{i.fp0}}</td>
-                                <td >{{i.fp1}}</td>
-                                <td >{{i.p2}}</td>
-                                <td >{{i.errorA}}</td>
+                                <td >{{i}}</td>
                             </tr>
                             {% endfor %}
                         {% endif %}

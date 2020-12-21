@@ -8,20 +8,21 @@ import random
    a = Coefficient's vector
    g = Polinomial's degree   
 '''   
+
 def Rbairstow(a,r,s,g,roots):
 	
 	if(g<1):
-		return 0
+		return 1
 	if((g==1) and (a[1]!=0)):
 		roots.append(float(-a[0])/float(a[1]))
-		return None
+		return roots
 	if(g==2):
 		D = (a[1]*2.0)-(4.0)*(a[2])*(a[0])
 		X1 = (-a[1] - math.sqrt(D))/(2.0*a[2])
 		X2 = (-a[1] + math.sqrt(D))/(2.0*a[2])
 		roots.append(X1)
 		roots.append(X2)
-		return 0
+		return roots
 	n = len(a)
 	b = [0]*len(a)
 	c = [0]*len(a)
@@ -38,7 +39,6 @@ def Rbairstow(a,r,s,g,roots):
 		c[i] = b[i] + r*c[i+1] + s*c[i+2]
 		i = i - 1
 	Din = ((c[2]*c[2])-(c[3]*c[1]))*(-1.0)
-	print("ra ",Din)
 	r = r + (Din)*((c[2])*(-b[1])+(-c[3])*(-b[0]))
 	s = s + (Din)*((-c[1])*(-b[1])+(c[2])*(-b[0]))
 	if(abs(b[0])>1E-14 or abs(b[1])>1E-14):
@@ -48,19 +48,16 @@ def Rbairstow(a,r,s,g,roots):
 		X1 = (r - (math.sqrt(Dis)))/(2.0)
 		X2 = (r + (math.sqrt(Dis)))/(2.0)
 		roots.append(X1)
-		
 		roots.append(X2)
 		return Rbairstow(b[2:],r,s,g-2,roots)	
 
-
-k = 0
-g = 5
-roots = []
-a = [1,-3.5,2.75,2.125,-3.875,1.25]
-r = -1
-s = -1
-Rbairstow(a,r,s,g,roots)
-print("\nFound Roots => \n")
-for ra in roots:
-	print("R ",ra )
-	k += 1
+#g = 2
+#roots = []
+#a = [1,-3.5,2.75,2.125,-3.875,1.25]
+#a = [-4,0,1]
+#r = -3
+#s = 3
+#Rbairstow(a,r,s,g,roots)
+#print("\nFound Roots => \n")
+#for ra in roots:
+#	print("R ",ra )

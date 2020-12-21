@@ -27,12 +27,8 @@
                         <thread class="thread-green">
                             <tr>
                                 <th >Iteración</th> 
-                                <th >X<sub>i-1</sub></th>
-                                <th >X<sub>i</sub></th>
-                                <th >f<sub>(Xi-1)</sub></th> 
-                                <th >f<sub>(Xi)</sub></th>
-                                <th >X<sub>i+1</sub></th>
-                                <th >Error absoluto</th> 
+                                <th >X<sub>3</sub></th>
+                                <th >Error<sub>%</sub></th>
                             </tr>
                         </thread>
                         
@@ -41,12 +37,8 @@
                             {% for i in resp %}
                             <tr>
                                 <td >{{i.iter}}</td>
-                                <td >{{i.p0}}</td>
-                                <td >{{i.p1}}</td>
-                                <td >{{i.fp0}}</td>
-                                <td >{{i.fp1}}</td>
-                                <td >{{i.p2}}</td>
-                                <td >{{i.errorA}}</td>
+                                <td >{{i.x3}}</td>
+                                <td >{{i.errorP}}</td>
                             </tr>
                             {% endfor %}
                         {% endif %}

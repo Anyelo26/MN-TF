@@ -45,27 +45,32 @@
     <section class="get_in_touch">
         <h1 class="title">Método de Muller</h1>
         <div class="container">
-            <div class="contact-form row">
+            <form  class="contact-form row" action="ResultMuller" method='POST'>
+                {% csrf_token %}
                 <div class="form-field col-lg-12">
-                    <input id="funcion" class="input-text" type="text" name="">
+                    <input id="funcion" class="input-text" type="text" name="pol" required>
                     <label for="funcion" class="label">Polinomio</label>
                 </div>
-                <div class="form-field col-lg-6">
-                    <input id="inicialx0" class="input-text" type="number" name="">
+                <div class="form-field col-lg-4">
+                    <input id="inicialx0" class="input-text" type="text" name="x0" required>
                     <label for="inicialx0" class="label">Valor inicial x0</label>
                 </div>
-                <div class="form-field col-lg-6">
-                    <input id="inicialx1" class="input-text" type="number" name="">
+                <div class="form-field col-lg-4">
+                    <input id="inicialx1" class="input-text" type="text" name="x1" required>
                     <label for="inicialx1" class="label">Valor inicial x1</label>
                 </div>
+                <div class="form-field col-lg-4">
+                    <input id="inicialx1" class="input-text" type="text" name="x2" required>
+                    <label for="inicialx1" class="label">Valor inicial x2</label>
+                </div>
                 <div class="form-field col-lg-6">
-                    <input id="tolerancia" class="input-text" type="number" name="">
+                    <input id="tolerancia" class="input-text" type="text" name="tol" required>
                     <label for="tolerancia" class="label">Tolerancia deseada</label>
                 </div>
                 <div class="form-field col-lg-12 derecha">
-                    <input class="submit-btn" type="submit" value="calcular" name="">
+                    <input class="submit-btn" type="submit" value="calcular" name="calcular">
                 </div>
-            </div>
+            </form>
         </div>
     </section>
 

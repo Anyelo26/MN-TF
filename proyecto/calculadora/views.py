@@ -10,6 +10,7 @@ from calculadora.Metodos.MetodosAbiertos.newton_r import Rnewton
 from calculadora.Metodos.MetodosAbiertos.punto_fijo import Rpuntofijo
 from calculadora.Metodos.MetodosAbiertos.secante import Rsecante
 from calculadora.Metodos.MetodosPolinomios.Bairstow import Rbairstow
+from calculadora.Metodos.MetodosPolinomios.Muller import Rmuller
 #---------Para funcion plot----
 
 from calculadora.Metodos.MetodosAbiertos.conversor import aTransformar, evaluar
@@ -215,29 +216,70 @@ def PuntoFijo(request):  #TYPEMETHOD=4
         return render(request,'puntofijo/resultado.html',context=myError)
 
 def Secante(request):       #TYPEMETHOD=5
-    funcion= request.POST['pol']
-    p0= float( request.POST['x0'] )
-    p1= float( request.POST['x1'] )
-    tol= float( request.POST['tol'] )
-    n= int( request.POST['iter'] )
-    
-    resp= Rsecante(funcion,p0,p1,tol,n)
-    raices = []
-    for r in resp:
-        raices.append(r["p2"])
-    setRaices(raices)
-    setMethod(5)
-    setF(funcion)
-    return render(request,'secante/resultado.html',{'resp':resp})
+    try:
+        funcion= request.POST['pol']
+        p0= float( request.POST['x0'] )
+        p1= float( request.POST['x1'] )
+        tol= float( request.POST['tol'] )
+        n= int( request.POST['iter'] )
+        
+        resp= Rsecante(funcion,p0,p1,tol,n)
+        raices = []
+        for r in resp:
+            raices.append(r["p2"])
+        setRaices(raices)
+        setMethod(5)
+        setF(funcion)
+        return render(request,'secante/resultado.html',{'resp':resp})
+    except ValueError:
+        myError = {
+            "error" :True,
+            "message": "No se permiten letras"
+        }
+        return render(request,'puntofijo/resultado.html',context=myError)
 
-def Bairstow(request):       #TYPEMETHOD=6
-    r= float( request.POST['r'] )
-    s= float( request.POST['s'] )
-    coefs = []
-    coef= float( request.POST['coef1'] )
-    coefs.append(coef)
-    resp = Rbairstow(coefs,r,s,2,[])
-    return render(request,'bairstow/resultado.html',{'resp':resp})
+def Muller(request):       #TYPEMETHOD=6
+    try:
+        funcion= request.POST['pol']
+        p0= float( request.POST['x0'] )
+        p1= float( request.POST['x1'] )
+        p2= float( request.POST['x2'] )
+        tol= float( request.POST['tol'] )
+        
+        resp= Rmuller(funcion,p0,p1,p2,tol)
+        raices = []
+        for r in resp:
+            raices.append(r["x3"])
+        setRaices(raices)
+        setMethod(6)
+        setF(funcion)
+        return render(request,'muller/resultado.html',{'resp':resp})
+    except ValueError:
+        myError = {
+            "error" :True,
+            "message": "No se permiten letras"
+        }
+        return render(request,'muller/resultado.html',context=myError)
+
+def Bairstow(request):       #TYPEMETHOD=7
+    try: 
+        r= float( request.POST['r'] )
+        s= float( request.POST['s'] )
+        coefs = []
+        coef= float( request.POST['coef1'] )
+        coef2= float( request.POST['coef2'] )
+        coef3= float( request.POST['coef3'] )
+        coefs.append(coef)
+        coefs.append(coef2)
+        coefs.append(coef3)
+        resp = Rbairstow(coefs,r,s,2,[])
+        return render(request,'bairstow/resultado.html',{'resp':resp})
+    except ValueError:
+        myError = {
+            "error" :True,
+            "message": "No se permiten letras"
+        }
+        return render(request,'bairstow/resultado.html',context=myError)
 
 def graficar(request):
     funcionF = aTransformar(getF())
@@ -268,6 +310,8 @@ def graficar(request):
         return render(request, 'puntofijo/grafica.html',{'script':script, 'div':div}) 
     elif getMethod()==5:
         return render(request, 'secante/grafica.html',{'script':script, 'div':div}) 
+    elif getMethod()==6:
+        return render(request, 'muller/grafica.html',{'script':script, 'div':div}) 
     
 #https://www.youtube.com/watch?v=KOZY1-rLauc&list=PLS1QulWo1RIZz1aTTzz17L6rmN2ML3_p-&index=21  %CALCULATOR RESPUESTA 1
 # https://www.youtube.com/watch?v=lgI6qvSGkSk&list=PLpOqH6AE0tNgL7Jg9Kx4SdfA5_oK6292j&index=23 %Como imprimir la lista 

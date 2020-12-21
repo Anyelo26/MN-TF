@@ -32,8 +32,7 @@ def Rbiseccion(cad,lim1,lim2):
             ansDictionary["xr"] = round(float(c),10)
             ansDictionary["fxa"] = round(float(fa),10)
             ansDictionary["fxr"] = round(float(fc),10)
-
-            break
+            return contenedor
         elif fa*fc<0:
             b=c
         else:
