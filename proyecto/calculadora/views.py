@@ -117,7 +117,7 @@ def Biseccion(request):     #TYPEMETHOD=1
         setRaices(raices)
         setMethod(1)
         setF(abc)
-        if (resp ==False):
+        if (resp ==-1):
             myError = {
             "error" :True,
             "message": "No existe convergencia"

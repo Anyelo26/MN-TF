@@ -12,7 +12,7 @@ def Rbiseccion(cad,lim1,lim2):
     condi1=(sympy.sympify(poli).subs(x,a)>0 and sympy.sympify(poli).subs(x,b)<0)
     condi2=(sympy.sympify(poli).subs(x,a)<0 and sympy.sympify(poli).subs(x,b)>0)
     if not(condi1 or condi2):
-        return False
+        return -1
     
     error=10    # error
     iter=1         #Contador de iteracion
