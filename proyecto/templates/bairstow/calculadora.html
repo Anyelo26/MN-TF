@@ -26,7 +26,7 @@
             $("#add").click(function() {
                 var intId = $("#buildyourform div").length + 1;
                 var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + intId + "\"/>");
-                var fName = $("<input class=\"input-text\" type=\"text\" name=\"coef"+(indice+1)+"\" placeholder=\"Coef. X grado "+(indice)+"\" />");
+                var fName = $("<input class=\"input-text\" type=\"text\" name=\"coef"+(indice+1)+"\" placeholder=\"Coef. X grado "+(indice)+"\" required/>");
                 var removeButton = $("<input type=\"button\" class=\"remove\" value=\"Quitar\" />");
                 removeButton.click(function() {
                     $(this).parent().remove();

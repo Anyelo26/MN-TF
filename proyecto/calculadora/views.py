@@ -279,7 +279,7 @@ def Bairstow(request):       #TYPEMETHOD=7
             "error" :True,
             "message": "No se permiten letras"
         }
-        return render(request,'puntofijo/resultado.html',context=myError)
+        return render(request,'bairstow/resultado.html',context=myError)
 
 def graficar(request):
     funcionF = aTransformar(getF())
