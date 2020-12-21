@@ -10,19 +10,37 @@ from calculadora.Metodos.MetodosAbiertos.newton_r import Rnewton
 from calculadora.Metodos.MetodosAbiertos.punto_fijo import Rpuntofijo
 from calculadora.Metodos.MetodosAbiertos.secante import Rsecante
 #---------Para funcion plot----
+
 from calculadora.Metodos.MetodosAbiertos.conversor import aTransformar, evaluar
-from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
-from matplotlib.figure import Figure
 import numpy as np
+
 #-------------------------------------#
+from bokeh.plotting import figure
+from bokeh.embed import components
+from bokeh.models import HoverTool
+from bokeh.layouts import gridplot  #firstly import gridplot
 #Variable global para almacenar funcion
 FUNCTION = ""
+RAICES = []
+TYPEMETHOD = 0
 def getF(): 
     global FUNCTION
     return FUNCTION
 def setF(f):
     global FUNCTION
     FUNCTION = f
+def getMethod(): 
+    global TYPEMETHOD
+    return TYPEMETHOD
+def setMethod(n):
+    global TYPEMETHOD
+    TYPEMETHOD = n
+def getRaices(): 
+    global RAICES
+    return RAICES
+def setRaices(r):
+    global RAICES
+    RAICES = r
 #-------------------------------------#
 # Create your views here.
 
@@ -87,13 +105,18 @@ class MyErrorInMethod(Exception):
     def __init__(self, mensaje):
         self.mensaje = mensaje
 #.----------Funcione para ver resultados-------------------
-def Biseccion(request):    
+def Biseccion(request):     #TYPEMETHOD=1
     try: 
         abc= request.POST['pol'] 
-        setF(abc)
         a= int( request.POST['a'] )
         b= int( request.POST['b'] )
         resp= Rbiseccion(abc,a,b)
+        raices = []
+        for r in resp:
+            raices.append(r["xr"])
+        setRaices(raices)
+        setMethod(1)
+        setF(abc)
         return render(request,'biseccion/resultado.html',{'resp':resp})
     except ValueError:
         myError = {
@@ -102,16 +125,19 @@ def Biseccion(request):
         }
         return render(request,'biseccion/resultado.html',context=myError)
 
-def FalsaPosicion(request): 
+def FalsaPosicion(request):  #TYPEMETHOD=2
     try:
         abc= request.POST['pol'] 
-        setF(abc)
         a= int( request.POST['a'] )
         b= int( request.POST['b'] )
         iteraciones= int( request.POST['iteraciones'] )
-
         resp= RfalsaPosicion(abc,a,b,iteraciones)
-
+        raices = []
+        for r in resp:
+            raices.append(r["xr"])
+        setRaices(raices)
+        setMethod(2)
+        setF(abc)
         return render(request,'falsaposicion/resultado.html',{'resp':resp})
     except ValueError:
         myError = {
@@ -120,16 +146,22 @@ def FalsaPosicion(request):
         }
         return render(request,'falsaposicion/resultado.html',context=myError)
     
-def Newton(request): 
+def Newton(request):  #TYPEMETHOD=3
     try:   
         abc= request.POST['pol']
-        setF(abc)
         puntoInit= float( request.POST['pInicial'] )
         tol= float( request.POST['tol'] )
         iteraciones= int( request.POST['iteraciones'] )
         resp= Rnewton(abc,puntoInit,tol,iteraciones)
         if ( resp == -1):
             raise MyErrorInMethod("No converge")
+        raices = []
+        for r in resp:
+            raices.append(r["xii"])
+        setRaices(raices)
+        setMethod(3)
+        setF(abc)
+
         return render(request,'newton/resultado.html',{'resp':resp})    
     except ValueError:
         myError = {
@@ -144,17 +176,22 @@ def Newton(request):
         }
         return render(request,'newton/resultado.html',context=myError)
 
-def PuntoFijo(request): 
+def PuntoFijo(request):  #TYPEMETHOD=4
     try: 
         pol= request.POST['pol']
         polD= request.POST['polDespejado']
-        setF(pol)
         puntoInit= float( request.POST['pInicial'] )
         tol= float( request.POST['tol'] )
         iteraciones= int( request.POST['iteraciones'] )
         resp= Rpuntofijo(pol,polD,puntoInit,tol,iteraciones)
         if ( resp == -1):
             raise MyErrorInMethod("No converge")
+        raices = []
+        for r in resp:
+            raices.append(r["x0"])
+        setRaices(raices)
+        setMethod(4)
+        setF(pol)
         return render(request,'puntofijo/resultado.html',{'resp':resp})
     except ValueError:
         myError = {
@@ -169,37 +206,52 @@ def PuntoFijo(request):
         }
         return render(request,'puntofijo/resultado.html',context=myError)
 
-def Secante(request): 
+def Secante(request):       #TYPEMETHOD=5
     funcion= request.POST['pol']
-    setF(funcion)
     p0= float( request.POST['x0'] )
     p1= float( request.POST['x1'] )
     tol= float( request.POST['tol'] )
     n= int( request.POST['iter'] )
     
     resp= Rsecante(funcion,p0,p1,tol,n)
-    return render(request,'secante/resultado.html',{'resp':resp})    
+    raices = []
+    for r in resp:
+        raices.append(r["p2"])
+    setRaices(raices)
+    setMethod(5)
+    setF(funcion)
+    return render(request,'secante/resultado.html',{'resp':resp})
 
-def plot(request):
+def graficar(request):
     funcionF = aTransformar(getF())
-    #print(funcionF)
+    #Funcion
     x= np.arange(-10,10,0.01)
-   # fx = lambda x: funcionF
-    fig=Figure()
+    y0 = [float (evaluar(funcionF, i)) for i in x]
+    #Raices
+    xR = getRaices()
+    yR = [float (evaluar(funcionF, i)) for i in xR]
+    xFinal = xR[len(xR)-1]
+    yFinal = float (evaluar(funcionF, xFinal)) 
+    #Graficas
+    titulodePlot = "Mi función: " + getF()
+    plot = figure(title=titulodePlot)
+    plot.line(x,y0, legend="Funcion f(x)", line_color="blue")
+    plot.circle(xR,yR, legend="Raiz", fill_color="red", size=5)
+    plot.circle(xFinal,yFinal, legend="Última raiz", fill_color="yellow", size=6)
+    p4 = gridplot([[plot]])
+    script, div = components(p4)
     
-     # Creamos los ejes
-    ax = fig.add_axes([0.15, 0.15, 0.75, 0.75]) # [left, bottom, width, height]
-    ax.plot(x, [evaluar(funcionF, i) for i in x])
-    ax.set_xlabel("Eje X")
-    ax.set_ylabel("Eje Y")
-    ax.set_title("Mi función: " + "$"+getF()+"$")
-    ax.grid()
-
-    canvas=FigureCanvas(fig)
-    response=django.http.HttpResponse(content_type='image/png')
-    canvas.print_png(response)
-    # Devolvemos la response
-    return response
-
+    if getMethod()==1: 
+        return render(request, 'biseccion/grafica.html',{'script':script, 'div':div})
+    elif getMethod()==2:
+        return render(request, 'falsaposicion/grafica.html',{'script':script, 'div':div})
+    elif getMethod()==3:
+        return render(request, 'newton/grafica.html',{'script':script, 'div':div}) 
+    elif getMethod()==4:
+        return render(request, 'puntofijo/grafica.html',{'script':script, 'div':div}) 
+    elif getMethod()==5:
+        return render(request, 'secante/grafica.html',{'script':script, 'div':div}) 
+    
 #https://www.youtube.com/watch?v=KOZY1-rLauc&list=PLS1QulWo1RIZz1aTTzz17L6rmN2ML3_p-&index=21  %CALCULATOR RESPUESTA 1
 # https://www.youtube.com/watch?v=lgI6qvSGkSk&list=PLpOqH6AE0tNgL7Jg9Kx4SdfA5_oK6292j&index=23 %Como imprimir la lista 
+#https://stackoverrun.com/es/q/9673979

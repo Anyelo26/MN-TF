@@ -1484,7 +1484,7 @@ contact
   max-width: 800px;
   margin: 25px auto;
   position: relative;
-  box-shadow: 0 10px 30px 0px rgba(1,0,0,0.2);
+  box-shadow: 0 10px 30px 0px rgba(1,0,0,0.1);
   padding: 30px;
 }
 
@@ -1493,7 +1493,7 @@ contact
   letter-spacing: 3px;
   font-size: 2em;
   line-height: 25px;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
   color: #5543ca;
   background: linear-gradient(to right, #f4524d 0%, #5543ca 100%);
   -webkit-background-clip: text;
@@ -1502,22 +1502,22 @@ contact
 
 .contact-form .form-field{
   position: relative;
-  margin: 10px 0;
+  margin: 20px 0;
 }
 .contact-form .input-text{
   display: block;
   width: 100%;
-  height: 25px;
+  height: 30px;
   border-width: 0 0 2px 0;
   border-color: #5543ca;
   font-size: 18px;
-  line-height: 26px;
+  line-height: 10px;
   font-weight: 400;
 }
 
 .contact-form .input-text:focus + .label,
 .contact-form .input-text.not-empty + .label{
-  transform: translateY(-24px);
+  transform: translateY(-15px);
 }
 
 .contact-form .input-text:focus{
@@ -1527,9 +1527,9 @@ contact
 .contact-form .label{
   position: absolute;
   left: 25px;
-  bottom: 30px;
+  bottom: 15px;
   font-size: 18px;
-  line-height: 26px;
+  line-height: 100px;
   font-weight: 400;
   color: #5543ca;
   cursor: text;

@@ -21,13 +21,8 @@
                 {% else %}
                 <div > 
                     <div class="alert alert-success alert-dismissible fade show" role="alert"> 
-                        <strong>GRÁFICA</strong>
-                    </div>
-                    <div class="card">
-                        <center><img src="plot" width="600px" /></center>
-                    </div>
-                    <div class="alert alert-success alert-dismissible fade show" role="alert"> 
                         <strong>RESPUESTA</strong>
+                        <a class="btn btn-primary" href="{% url 'graficar'%}" style="margin-left: 10px;">Ver en gráfica</a>
                     </div>
                     <table class="table table-striped table-hover">
                         <thread class="thread-green">
@@ -35,6 +30,9 @@
                                 <th >Iteración</th> 
                                 <th >X<sub>a</sub></th>
                                 <th >X<sub>b</sub></th> 
+                                <th >f<sub>(a)</sub></th> 
+                                <th >f<sub>(b)</sub></th> 
+                                <th >X<sub>r</sub></th> 
                                 <th >Error relativo</th> 
                             </tr>
                         </thread>
@@ -46,6 +44,9 @@
                                 <td >{{i.iter}}</td>
                                 <td >{{i.xi}}</td>
                                 <td >{{i.xs}}</td>
+                                <td >{{i.fxi}}</td>
+                                <td >{{i.fxs}}</td>
+                                <td >{{i.xr}}</td>
                                 <td >{{i.errorRel}}</td>
                             </tr>
                             {% endfor %}

@@ -48,7 +48,7 @@
                 {% csrf_token %}
                 <div class="form-field col-lg-12">
                     <input id="funcion" class="input-text" type="text" name="pol" required>
-                    <label for="funcion" class="label">Polinomio</label>
+                    <label for="funcion" class="label">Función</label>
                 </div>
                 <div class="form-field col-lg-6">
                     <input id="inicialx0" class="input-text" type="text" name="x0" required>
@@ -89,6 +89,10 @@
     <!-- Global Init -->
     <script src="{% static 'js/custom.js' %}"></script>
         
+    <center>
+        {% block graph %}  
+        {% endblock %}
+    </center>
     {% block content %}    
     {% endblock %}
   </body>

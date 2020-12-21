@@ -5,22 +5,20 @@ def RfalsaPosicion(cad,a,b,iteraciones):
         xi,xs=a,b
     else:
         xi,xs=b,a
-    if iteraciones>=10:
-        numeroIteraciones=10
+    if iteraciones>=8:
+        numeroIteraciones=8
     else:
         numeroIteraciones=iteraciones
     
     x=sympy.symbols('x')		#declaracion de variables
     poli=cn.aTransformar(cad)
-    i=0
 
     ranterior=0
     error=100
 
     contenedor=[]           #arreglo contenedor principal,  almacena diccionarios por cada interación
-    iter=0   
+    iter=1   
     while numeroIteraciones> 0: #si el error es mayor de 4 decimales
-        iter=iter+1 #Valor de iteración que almacena el diccionario
         ansDictionary = {
             "iter" : iter,
             "xi" : round(float(xi),10),
@@ -29,18 +27,20 @@ def RfalsaPosicion(cad,a,b,iteraciones):
         fxi=sympy.sympify(poli).subs(x,xi)
         fxs=sympy.sympify(poli).subs(x,xs)
 
-        ractual=(  xi*fxs-xs*fxi  )/(  fxs-fxi  )
+        ractual= xs - (( fxs*(xi - xs) )/(  fxi-fxs  ))
+        ansDictionary["fxi"] = round(float(fxi),10)
+        ansDictionary["fxs"] = round(float(fxs),10)
+        ansDictionary["xr"] = round(float(ractual),10)
         cond=fxi*fxs
-
         if cond<0:
             xi=ractual
-        elif cond>=0:
+        elif cond>0:
             xs=ractual
         
-        if i!=0:
+        if iter-1!=0:
             error=abs(((ractual - ranterior)/ractual)*100)
         ranterior=ractual
-        i=i+1
+        iter=iter+1
         numeroIteraciones=numeroIteraciones-1        
         ansDictionary["errorRel"] = round(float(error),10)
         contenedor.append(ansDictionary)                

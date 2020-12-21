@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}">
     <link rel="stylesheet" href="{% static 'css/calculadora.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/resultadoCalculadora.css' %}">   <!-- * Estilos de respuesta de calculadora * -->
-
+    
     </head>
     
     <body>
@@ -47,7 +47,7 @@
                 {% csrf_token %}
                 <div class="form-field col-lg-12">
                     <input id="funcion" class="input-text" type="text" name="pol" required>
-                    <label for="funcion" class="label">Polinomio</label>
+                    <label for="funcion" class="label">Función</label>
                 </div>
                 <div class="form-field col-lg-6">
                     <input id="inicialx0" class="input-text" type="text" name="a" required>
@@ -64,12 +64,12 @@
                 </div>
                 -->
                 <div class="form-field col-lg-12 derecha">
-                    <input class="submit-btn" type="submit">
+                    <input class="submit-btn" type="submit" >
                 </div>
             </form>
         </div>
-    </section>
-
+    </section>    
+    
     <!-- jQuery -->
     <script src="{% static 'js/jquery-2.1.0.min.js' %}"></script>
 
@@ -85,9 +85,13 @@
     
     <!-- Global Init -->
     <script src="{% static 'js/custom.js' %}"></script>
-    
+    <center>
+        {% block graph %}  
+        {% endblock %}
+    </center>
     {% block content %}    
     {% endblock %}
     
   </body>
 </html>
+

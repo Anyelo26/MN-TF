@@ -84,6 +84,13 @@
     
     <!-- Global Init -->
     <script src="{% static 'js/custom.js' %}"></script>
-
+    
+    <center>
+        {% block graph %}  
+        {% endblock %}
+    </center>
+    {% block content %}    
+    {% endblock %}
+    
   </body>
 </html>

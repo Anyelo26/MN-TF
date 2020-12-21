@@ -43,25 +43,30 @@
     <!-- ***** Header Area End ***** -->
     <br>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row p-3 indice">
 
-            <div class="col-6">
+            <div class="col-4">
+                <h3>Métodos Cerrados</h3>
                 <ol>
-                <li class="borde"><a href="{% url 'biseccionCalculadora' %}"> Calculadora de Método de Bisección</a></li>
-                <br>
-                <li class="borde" ><a href="{% url 'falsaposicionCalculadora' %}"> Calculadora de Método de Falsa Posición</a></li>
-                <br>
-                <li class="borde"><a href="{% url 'puntofijoCalculadora' %}"> Calculadora de Método del Punto Fijo</a></li>
-                <br>
-                <li class="borde"><a href="{% url 'secanteCalculadora' %}"> Calculadora de Método de la Secante</a></li>
-                <br>
+                    <li class="borde"><a href="{% url 'biseccionCalculadora' %}"> Calculadora de Método de Bisección</a></li>
+                    <br>
+                    <li class="borde" ><a href="{% url 'falsaposicionCalculadora' %}"> Calculadora de Método de Falsa Posición</a></li>
                 </ol>
             </div>
-            <div class="col-6">
+            <div class="col-4"> 
+                <h3>Métodos Abiertos</h3>
                 <ol>
-                    <li class="borde"><a href="{% url 'newtonCalculadora' %}"> Calculadora de Método de Newton-Raphson</a></li>
+                    <li class="borde"><a href="{% url 'puntofijoCalculadora' %}"> Calculadora de Método del Punto Fijo</a></li>
                     <br>
+                    <li class="borde"><a href="{% url 'secanteCalculadora' %}"> Calculadora de Método de la Secante</a></li>
+                    <br>
+                    <li class="borde"><a href="{% url 'newtonCalculadora' %}"> Calculadora de Método de Newton-Raphson</a></li>
+                </ol>
+            </div> 
+            <div class="col-4">
+                <h3>Raices de Polinomios</h3>
+                <ol>
                     <li class="borde"><a href="{% url 'mullerCalculadora' %}"> Calculadora de Método de Muller</a></li>
                     <br>
                     <li class="borde"><a href="{% url 'bairstowCalculadora' %}"> Calculadora de Método de Bairstow</a></li>
