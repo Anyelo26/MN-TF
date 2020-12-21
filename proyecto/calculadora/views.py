@@ -272,7 +272,7 @@ def Bairstow(request):       #TYPEMETHOD=7
         coefs.append(coef)
         coefs.append(coef2)
         coefs.append(coef3)
-        resp = Rbairstow(coefs,r,s,len(coefs)-1,[])
+        resp = Rbairstow(coefs,r,s,2,[])
         return render(request,'bairstow/resultado.html',{'resp':resp})
     except ValueError:
         myError = {
