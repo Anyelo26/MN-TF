@@ -117,6 +117,12 @@ def Biseccion(request):     #TYPEMETHOD=1
         setRaices(raices)
         setMethod(1)
         setF(abc)
+        if (resp ==False):
+            myError = {
+            "error" :True,
+            "message": "No existe convergencia"
+            }
+            return render(request,'biseccion/resultado.html',context=myError)
         return render(request,'biseccion/resultado.html',{'resp':resp})
     except ValueError:
         myError = {
@@ -186,12 +192,6 @@ def PuntoFijo(request):  #TYPEMETHOD=4
         resp= Rpuntofijo(pol,polD,puntoInit,tol,iteraciones)
         if ( resp == -1):
             raise MyErrorInMethod("No converge")
-        raices = []
-        for r in resp:
-            raices.append(r["x0"])
-        setRaices(raices)
-        setMethod(4)
-        setF(pol)
         return render(request,'puntofijo/resultado.html',{'resp':resp})
     except ValueError:
         myError = {
