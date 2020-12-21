@@ -28,7 +28,7 @@ urlpatterns = [
     path('ResultPuntoFijo',views.PuntoFijo,name='ResultPuntoFijo'),
     path('ResultNewton',views.Newton,name='ResultNewtonRaphson'),
     path('ResultSecante',views.Secante,name='ResultSecante'),
-    
+    path('ResultMuller', views.Muller,name='ResultMuller'),
     path('ResultBairstow',views.Bairstow,name='ResultBairstow'),
     path('graficar', views.graficar, name='graficar'),
 ]
