@@ -68,18 +68,8 @@
         <div class="container">
             <form  class="contact-form row" action="ResultBairstow" method='POST'>
                 {% csrf_token %}
-                <div class="form-field col-lg-6">
-                    <input class="input-text" type="number" name="r">
-                    <label  class="label">Valor r</label>
-                </div>
-                <div class="form-field col-lg-6">
-                    <input class="input-text" type="number" name="s">
-                    <label class="label">Valor s</label>
-                </div>
-                <div class="form-field col-lg-12">
-                    <center>
                     
-                    <div class="form-field col-lg-8">
+                    <div class="form-field col-lg-9">
                         <fieldset id="buildyourform">
                             <legend>Ingresa coeficientes del polinomio</legend>
                             <div class="form-field col-lg-12">
@@ -93,12 +83,23 @@
 
                     </div>
                     
-                     <div class="form-field col-lg-4">
+                     <div class="form-field col-lg-3" style="margin-top: 10%;">
                         
-                        <input type="button" value="Añadir" class="input-text" id="add" />
+                        <input type="button" value="Añadir" class="input-text" id="add" /><br>
+                        <label for="funcion" class="label"> <a class="btn btn-primary" href="{% url 'graficar'%}" style="margin-left: 10px;">Ver en gráfica</a></label>
+                       
                     </div>
-  
-                    </center>
+                    
+                <div class="form-field col-lg-6">
+                    <input class="input-text" type="number" name="r">
+                    <label  class="label">Valor r</label>
+                </div>
+                <div class="form-field col-lg-6">
+                    <input class="input-text" type="number" name="s">
+                    <label class="label">Valor s</label>
+                </div>
+                <div class="form-field col-lg-12">
+
                 </div>
                 
                 

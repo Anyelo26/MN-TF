@@ -47,9 +47,12 @@
         <div class="container">
             <form  class="contact-form row" action="ResultMuller" method='POST'>
                 {% csrf_token %}
-                <div class="form-field col-lg-12">
+                <div class="form-field col-lg-8">
                     <input id="funcion" class="input-text" type="text" name="pol" required>
                     <label for="funcion" class="label">Polinomio</label>
+                </div>
+                <div class="form-field col-lg-4">
+                    <label for="funcion" class="label"> <a class="btn btn-primary" href="{% url 'graficar'%}" style="margin-left: 10px;">Ver en gráfica</a></label>
                 </div>
                 <div class="form-field col-lg-4">
                     <input id="inicialx0" class="input-text" type="text" name="x0" required>
