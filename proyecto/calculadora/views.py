@@ -9,6 +9,7 @@ from calculadora.Metodos.MetodosCerrados.FalsaPosicionModificado import RfalsaPo
 from calculadora.Metodos.MetodosAbiertos.newton_r import Rnewton
 from calculadora.Metodos.MetodosAbiertos.punto_fijo import Rpuntofijo
 from calculadora.Metodos.MetodosAbiertos.secante import Rsecante
+from calculadora.Metodos.MetodosPolinomios.Bairstow import Rbairstow
 #---------Para funcion plot----
 
 from calculadora.Metodos.MetodosAbiertos.conversor import aTransformar, evaluar
@@ -111,18 +112,18 @@ def Biseccion(request):     #TYPEMETHOD=1
         a= int( request.POST['a'] )
         b= int( request.POST['b'] )
         resp= Rbiseccion(abc,a,b)
+        if (resp ==-1):
+            myError = {
+            "error" :True,
+            "message": "Prueba con otro intervalo"
+            }
+            return render(request,'biseccion/resultado.html',context=myError)
         raices = []
         for r in resp:
             raices.append(r["xr"])
         setRaices(raices)
         setMethod(1)
         setF(abc)
-        if (resp ==-1):
-            myError = {
-            "error" :True,
-            "message": "No existe convergencia"
-            }
-            return render(request,'biseccion/resultado.html',context=myError)
         return render(request,'biseccion/resultado.html',{'resp':resp})
     except ValueError:
         myError = {
@@ -228,6 +229,15 @@ def Secante(request):       #TYPEMETHOD=5
     setMethod(5)
     setF(funcion)
     return render(request,'secante/resultado.html',{'resp':resp})
+
+def Bairstow(request):       #TYPEMETHOD=6
+    r= float( request.POST['r'] )
+    s= float( request.POST['s'] )
+    coefs = []
+    coef= float( request.POST['coef1'] )
+    coefs.append(coef)
+    resp = Rbairstow(coefs,r,s,2,[])
+    return render(request,'bairstow/resultado.html',{'resp':resp})
 
 def graficar(request):
     funcionF = aTransformar(getF())
