@@ -11,9 +11,9 @@ def Rpuntofijo(cad,cadDesp, p0, tol, n): #Método del punto fijo
     x = sp.Symbol('x')
     devGx= sp.diff(g,x) # derivada - salida simbolica
     
-    condi1=sp.sympify(g).subs(x,p0)
-    if abs(condi1)>1:
-        return False
+    #condi1=sp.sympify(g).subs(x,p0)
+    #if abs(condi1)>1:
+    #    return -1
     
     iter = 1
     while iter<= n:
@@ -40,7 +40,3 @@ def Rpuntofijo(cad,cadDesp, p0, tol, n): #Método del punto fijo
         except TypeError:
             return -1   #No converge
     return contenedor
-
-#pol(x), po = 0.9, tol = 10^-10, n=100
-
-#puntofijo(pol_prima, 0, 0.00001, 12)

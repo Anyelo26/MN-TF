@@ -190,8 +190,15 @@ def PuntoFijo(request):  #TYPEMETHOD=4
         tol= float( request.POST['tol'] )
         iteraciones= int( request.POST['iteraciones'] )
         resp= Rpuntofijo(pol,polD,puntoInit,tol,iteraciones)
+        
         if ( resp == -1):
             raise MyErrorInMethod("No converge")
+        raices = []
+        for r in resp:
+            raices.append(r["x0"])
+        setRaices(raices)
+        setMethod(4)
+        setF(pol)    
         return render(request,'puntofijo/resultado.html',{'resp':resp})
     except ValueError:
         myError = {
