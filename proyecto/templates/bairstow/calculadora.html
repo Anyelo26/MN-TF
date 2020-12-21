@@ -17,8 +17,26 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}">
-
     <link rel="stylesheet" href="{% static 'css/calculadora.css' %}">
+    <link rel="stylesheet" href="{% static 'css/agregarFormulario.css' %}">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script  type="text/javascript">
+     $(document).ready(function() {
+            $("#add").click(function() {
+                var intId = $("#buildyourform div").length + 1;
+                var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + intId + "\"/>");
+                var fName = $("<input type=\"text\" class=\"fieldname\" />");
+                var removeButton = $("<input type=\"button\" class=\"remove\" value=\"Quitar\" />");
+                removeButton.click(function() {
+                    $(this).parent().remove();
+                });
+                fieldWrapper.append(fName);
+                fieldWrapper.append(removeButton);
+                $("#buildyourform").append(fieldWrapper);
+            });
+        });
+
+    </script>   
 
     </head>
     
@@ -45,27 +63,40 @@
     <section class="get_in_touch">
         <h1 class="title">Método de Bairstow</h1>
         <div class="container">
-            <div class="contact-form row">
+            <form  class="contact-form row" action="ResultBairstow" method='POST'>
+                {% csrf_token %}
+                <div class="form-field col-lg-6">
+                    <input class="input-text" type="number" name="r">
+                    <label  class="label">Valor r</label>
+                </div>
+                <div class="form-field col-lg-6">
+                    <input class="input-text" type="number" name="s">
+                    <label class="label">Valor s</label>
+                </div>
                 <div class="form-field col-lg-12">
-                    <input id="funcion" class="input-text" type="text" name="">
-                    <label for="funcion" class="label">Polinomio</label>
+                    <center>
+                   
+                    <fieldset id="buildyourform">
+                            <legend>Ingresa coeficientes del polinomio</legend>
+                            <input type="text" name="field_name[]" value=""/>
+                            <input type="text" name="field_name[]" value=""/>
+                        </fieldset>
+                     <div class="form-field col-lg-4">
+                        
+                        <input type="button" value="Añadir" class="add" id="add" />
+                    </div>
+  
+                    </center>
                 </div>
-                <div class="form-field col-lg-6">
-                    <input id="inicialx0" class="input-text" type="number" name="">
-                    <label for="inicialx0" class="label">Valor inicial x0</label>
-                </div>
-                <div class="form-field col-lg-6">
-                    <input id="inicialx1" class="input-text" type="number" name="">
-                    <label for="inicialx1" class="label">Valor inicial x1</label>
-                </div>
-                <div class="form-field col-lg-6">
-                    <input id="tolerancia" class="input-text" type="number" name="">
-                    <label for="tolerancia" class="label">Tolerancia deseada</label>
-                </div>
+                
+                
+                
+                
+           
                 <div class="form-field col-lg-12 derecha">
                     <input class="submit-btn" type="submit" value="calcular" name="">
                 </div>
-            </div>
+            </form>
         </div>
     </section>
 
