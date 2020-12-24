@@ -19,8 +19,6 @@
     <link rel="stylesheet" href="{% static 'css/calculadora.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/resultadoCalculadora.css' %}">   <!-- * Estilos de respuesta de calculadora * -->
     
-    </head>
-    
     <body>
     <!-- ***** Header Area Start ***** -->
     <header class="header-area header-sticky">
@@ -43,31 +41,27 @@
     <section class="get_in_touch">
         <h1 class="title">Método de Bisección</h1>
         <div class="container">  
-            <form  class="contact-form row" action="ResultBiseccion" method='POST'>
+            <form  class="contact-form row"  method='POST'>
                 {% csrf_token %}
                 <div class="form-field col-lg-8">
                     <input id="funcion" class="input-text" type="text" name="pol" required>
                     <label for="funcion" class="label">Función</label>
                 </div>
                 <div class="form-field col-lg-4">
-                    <label for="funcion" class="label"><a class="btn btn-primary" href="{% url 'graficar'%}" style="margin-left: 10px;">Ver en gráfica</a></label> 
+                    <input name="metodo" type="hidden" value="1">
+                    <button class="submit-btn" formaction="grafica"  type="submit" >Graficar</button>
                 </div>
                 <div class="form-field col-lg-6">
-                    <input id="inicialx0" class="input-text" type="text" name="a" required>
+                    <input id="inicialx0" class="input-text" type="number" step="any" name="a" >
                     <label for="inicialx0" class="label">Valor inicial x0</label>
                 </div>
                 <div class="form-field col-lg-6">
-                    <input id="inicialx1" class="input-text" type="text" name="b" required>
+                    <input id="inicialx1" class="input-text" type="number" step="any" name="b" >
                     <label for="inicialx1" class="label">Valor inicial x1</label>
                 </div>
-                <!--
-                <div class="form-field col-lg-6">
-                    <input id="tolerancia" class="input-text" type="number" name="">
-                    <label for="tolerancia" class="label">Tolerancia deseada</label>
-                </div>
-                -->
+              
                 <div class="form-field col-lg-12 derecha">
-                    <input class="submit-btn" type="submit" >
+                    <input formaction="ResultBiseccion" class="submit-btn" type="submit" value="Calcular" >
                 </div>
             </form>
         </div>

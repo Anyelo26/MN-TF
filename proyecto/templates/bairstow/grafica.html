@@ -1,4 +1,4 @@
-{% extends 'muller/calculadora.html' %}
+{% extends 'bairstow/calculadora.html' %}
 
 {% block graph %}        
 <!DOCTYPE html>
@@ -17,7 +17,7 @@
     <div class="row">
       <div style="margin:0 auto;">
             <div class="alert alert-success alert-dismissible fade show" role="alert"> 
-              <strong>GRÁFICA DE MÉTODO MULLER</strong>
+              <strong>GRÁFICA DE MÉTODO BAIRSTOW</strong>
             </div>
             <div class="card">      
               {{div|safe}}
@@ -25,6 +25,9 @@
       </div>
     </div>
   </div>
+
+  
+   
 </body>
 <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-2.2.3.min.js"></script>
 <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-2.2.3.min.js"></script>
