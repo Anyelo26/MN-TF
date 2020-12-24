@@ -174,7 +174,7 @@ def Newton(request):  #TYPEMETHOD=3
     except ValueError:
         myError = {
             "error" :True,
-            "message": "Revise bien los datos que ingresó, inténtelo de nuevo."
+            "message": "No se permiten letras"
         }
         return render(request,'newton/resultado.html',context=myError)
     except MyErrorInMethod as e:
@@ -205,7 +205,7 @@ def PuntoFijo(request):  #TYPEMETHOD=4
     except ValueError:
         myError = {
             "error" :True,
-            "message": "Revise bien los datos que ingresó, inténtelo de nuevo."
+            "message": "No se permiten letras"
         }
         return render(request,'puntofijo/resultado.html',context=myError)
     except MyErrorInMethod as e:
@@ -234,9 +234,9 @@ def Secante(request):       #TYPEMETHOD=5
     except ValueError:
         myError = {
             "error" :True,
-            "message": "Revise bien los datos que ingresó, inténtelo de nuevo."
+            "message": "No se permiten letras"
         }
-        return render(request,'secante/resultado.html',context=myError)
+        return render(request,'puntofijo/resultado.html',context=myError)
 
 def Muller(request):       #TYPEMETHOD=6
     try:
@@ -257,22 +257,9 @@ def Muller(request):       #TYPEMETHOD=6
     except ValueError:
         myError = {
             "error" :True,
-            "message": "Revise bien los datos que ingresó, inténtelo de nuevo."
+            "message": "No se permiten letras"
         }
         return render(request,'muller/resultado.html',context=myError)
-def polinomio(mat):
-	exp=""
-	gr=len(mat)
-	i=0
-	while i<(gr):
-		temp=mat[i]
-		if i==0:
-			exp=''+exp+str(temp)+"+"
-		else:
-			exp=''+exp+str(temp)+"x^"+str(i)+"+"
-		i+=1
-	pol=exp[0:-1]
-	return pol
 
 def Bairstow(request):       #TYPEMETHOD=7
     try: 
@@ -286,9 +273,6 @@ def Bairstow(request):       #TYPEMETHOD=7
         coefs.append(coef2)
         coefs.append(coef3)
         resp = Rbairstow(coefs,r,s,2,[])
-        setMethod(7)
-        setRaices(resp)
-        setF(polinomio(coefs))
         return render(request,'bairstow/resultado.html',{'resp':resp})
     except ValueError:
         myError = {
@@ -302,20 +286,17 @@ def graficar(request):
     #Funcion
     x= np.arange(-10,10,0.01)
     y0 = [float (evaluar(funcionF, i)) for i in x]
-   
+    #Raices
+    xR = getRaices()
+    yR = [float (evaluar(funcionF, i)) for i in xR]
+    xFinal = xR[len(xR)-1]
+    yFinal = float (evaluar(funcionF, xFinal)) 
     #Graficas
     titulodePlot = "Mi función: " + getF()
     plot = figure(title=titulodePlot)
     plot.line(x,y0, legend="Funcion f(x)", line_color="blue")
-     #Raices
-    xR = getRaices()
-    yR = [float (evaluar(funcionF, i)) for i in xR]
     plot.circle(xR,yR, legend="Raiz", fill_color="red", size=5)
-    if getMethod() !=7:
-        xFinal = xR[len(xR)-1]
-        yFinal = float (evaluar(funcionF, xFinal)) 
-       
-        plot.circle(xFinal,yFinal, legend="Última raiz", fill_color="yellow", size=6)
+    plot.circle(xFinal,yFinal, legend="Última raiz", fill_color="yellow", size=6)
     p4 = gridplot([[plot]])
     script, div = components(p4)
     
@@ -330,6 +311,7 @@ def graficar(request):
     elif getMethod()==5:
         return render(request, 'secante/grafica.html',{'script':script, 'div':div, 'pol':getF()}) 
     elif getMethod()==6:
+<<<<<<< HEAD
         return render(request, 'muller/grafica.html',{'script':script, 'div':div, 'pol':getF()}) 
     elif getMethod()==7:
         return render(request, 'bairstow/grafica.html',{'script':script, 'div':div}) 
@@ -377,6 +359,10 @@ def graficaInit(request):
     elif getMethod()==7:
         return render(request, 'bairstow/grafica.html',{'script':script, 'div':div}) 
   
+=======
+        return render(request, 'muller/grafica.html',{'script':script, 'div':div}) 
+    
+>>>>>>> parent of eab7032... Merge branch 'main' of https://github.com/Anyelo26/MN-TF into main
 #https://www.youtube.com/watch?v=KOZY1-rLauc&list=PLS1QulWo1RIZz1aTTzz17L6rmN2ML3_p-&index=21  %CALCULATOR RESPUESTA 1
 # https://www.youtube.com/watch?v=lgI6qvSGkSk&list=PLpOqH6AE0tNgL7Jg9Kx4SdfA5_oK6292j&index=23 %Como imprimir la lista 
 #https://stackoverrun.com/es/q/9673979
