@@ -44,15 +44,15 @@
             <form  class="contact-form row"  method='POST'>
                 {% csrf_token %}
                 <div class="form-field col-lg-8">
-                    <input id="funcion" class="input-text" type="text" name="pol" required>
+                    <input id="funcion" class="input-text" type="text" name="pol" value="{{pol}}" required>
                     <label for="funcion" class="label">Función</label>
                 </div>
                 <div class="form-field col-lg-4">
                     <input name="metodo" type="hidden" value="1">
-                    <button class="submit-btn" formaction="grafica"  type="submit" >Graficar</button>
+                    <button class="submit-btn" formaction="grafica"  type="submit">Graficar</button>
                 </div>
                 <div class="form-field col-lg-6">
-                    <input id="inicialx0" class="input-text" type="number" step="any" name="a" >
+                    <input id="inicialx0" class="input-text" type="number" step="any" name="a" > 
                     <label for="inicialx0" class="label">Valor inicial x0</label>
                 </div>
                 <div class="form-field col-lg-6">
