@@ -31,4 +31,5 @@ urlpatterns = [
     path('ResultMuller', views.Muller,name='ResultMuller'),
     path('ResultBairstow',views.Bairstow,name='ResultBairstow'),
     path('graficar', views.graficar, name='graficar'),
+    path('grafica', views.graficaInit, name='grafica'),
 ]

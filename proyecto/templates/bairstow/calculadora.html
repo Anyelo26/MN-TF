@@ -26,7 +26,7 @@
             $("#add").click(function() {
                 var intId = $("#buildyourform div").length + 1;
                 var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + intId + "\"/>");
-                var fName = $("<input class=\"input-text\" type=\"text\" name=\"coef"+(indice+1)+"\" placeholder=\"Coef. X grado "+(indice)+"\" required/>");
+                var fName = $("<input class=\"input-text\" type=\"number\" step=\"any\" name=\"coef"+(indice+1)+"\" placeholder=\"Coef. X grado "+(indice)+"\" required/>");
                 var removeButton = $("<input type=\"button\" class=\"remove\" value=\"Quitar\" />");
                 removeButton.click(function() {
                     $(this).parent().remove();
@@ -66,7 +66,7 @@
     <section class="get_in_touch">
         <h1 class="title">Método de Bairstow</h1>
         <div class="container">
-            <form  class="contact-form row" action="ResultBairstow" method='POST'>
+            <form  class="contact-form row" method='POST'>
                 {% csrf_token %}
                 <div class="form-field col-lg-6">
                     <input class="input-text" type="number" name="r">
@@ -83,10 +83,10 @@
                         <fieldset id="buildyourform">
                             <legend>Ingresa coeficientes del polinomio</legend>
                             <div class="form-field col-lg-12">
-                                <input class="input-text" type="text"  name="coef1" placeholder="Coef. X grado 0" required/>
+                                <input class="input-text" type="number" step="any"  name="coef1" placeholder="Coef. X grado 0" required/>
                             </div>
                             <div class="form-field col-lg-12">
-                                <input class="input-text" type="text" name="coef2" placeholder="Coef. X grado 1" required/>
+                                <input class="input-text" type="number" step="any" name="coef2" placeholder="Coef. X grado 1" required/>
                             </div>
                             
                         </fieldset>
@@ -94,19 +94,16 @@
                     </div>
                     
                      <div class="form-field col-lg-4">
-                        
                         <input type="button" value="Añadir" class="input-text" id="add" />
                     </div>
   
                     </center>
                 </div>
-                
-                
-                
-                
-           
+   
                 <div class="form-field col-lg-12 derecha">
-                    <input class="submit-btn" type="submit" value="calcular" name="">
+                    <input name="metodo" type="hidden" value="7">
+                    <button class="submit-btn" formaction="grafica"  type="submit" >Graficar</button>
+                    <input formaction="ResultBairstow" class="submit-btn" type="submit" value="Calcular">
                 </div>
             </form>
         </div>
