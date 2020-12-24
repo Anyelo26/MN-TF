@@ -45,34 +45,33 @@
     <section class="get_in_touch">
         <h1 class="title">Método de Muller</h1>
         <div class="container">
-            <form  class="contact-form row"  method='POST'>
+            <form  class="contact-form row" action="ResultMuller" method='POST'>
                 {% csrf_token %}
                 <div class="form-field col-lg-8">
                     <input id="funcion" class="input-text" type="text" name="pol" value="{{pol}}" required>
                     <label for="funcion" class="label">Polinomio</label>
                 </div>
                 <div class="form-field col-lg-4">
-                    <input name="metodo" type="hidden" value="6">
-                    <button class="submit-btn" formaction="grafica"  type="submit" >Graficar</button>
+                    <label for="funcion" class="label"> <a class="btn btn-primary" href="{% url 'graficar'%}" style="margin-left: 10px;">Ver en gráfica</a></label>
                 </div>
                 <div class="form-field col-lg-4">
-                    <input id="inicialx0" class="input-text" type="number" step="any" name="x0" >
+                    <input id="inicialx0" class="input-text" type="text" name="x0" required>
                     <label for="inicialx0" class="label">Valor inicial x0</label>
                 </div>
                 <div class="form-field col-lg-4">
-                    <input id="inicialx1" class="input-text" type="number" step="any" name="x1" >
+                    <input id="inicialx1" class="input-text" type="text" name="x1" required>
                     <label for="inicialx1" class="label">Valor inicial x1</label>
                 </div>
                 <div class="form-field col-lg-4">
-                    <input id="inicialx1" class="input-text" type="number" step="any" name="x2" >
+                    <input id="inicialx1" class="input-text" type="text" name="x2" required>
                     <label for="inicialx1" class="label">Valor inicial x2</label>
                 </div>
                 <div class="form-field col-lg-6">
-                    <input id="tolerancia" class="input-text" type="number" step="any" name="tol">
+                    <input id="tolerancia" class="input-text" type="text" name="tol" required>
                     <label for="tolerancia" class="label">Tolerancia deseada</label>
                 </div>
                 <div class="form-field col-lg-12 derecha">
-                    <input formaction="ResultMuller" class="submit-btn" type="submit" value="Calcular">
+                    <input class="submit-btn" type="submit" value="calcular" name="calcular">
                 </div>
             </form>
         </div>

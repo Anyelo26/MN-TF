@@ -44,7 +44,7 @@
     <section class="get_in_touch">
         <h1 class="title">Método de Punto Fijo</h1>
         <div class="container">
-            <form  class="contact-form row" method='POST'>
+            <form  class="contact-form row" action="ResultPuntoFijo" method='POST'>
                 {% csrf_token %}
                 <div class="form-field col-lg-8">
                     <input id="funcion" class="input-text" type="text" name="pol" value="{{pol}}" required>
@@ -55,23 +55,28 @@
                     <button class="submit-btn" formaction="grafica"  type="submit" >Graficar</button>
                 </div>
                 <div class="form-field col-lg-12">
-                    <input id="funcion" class="input-text" type="text" name="polDespejado" >
-                    <label for="funcion" class="label">Función Despejada (g(x))</label>
+                    <div class="form-field row-lg-6">
+                        <input id="funcion" class="input-text" type="text" name="polDespejado" required>
+                        <label for="funcion" class="label">Función Despejada (g(x))</label>
+                    </div>
+                    <div class="form-field row-lg-6">
+                        <label for="funcion" class="label"><a class="btn btn-primary" href="{% url 'graficar'%}" style="margin-left: 470%;">Ver en gráfica</a></label>
+                    </div>
                 </div>
                 <div class="form-field col-lg-6">
-                    <input id="inicialx0" class="input-text" type="number" step="any" name="pInicial">
+                    <input id="inicialx0" class="input-text" type="text" name="pInicial" required>
                     <label for="inicialx0" class="label">Valor inicial x0</label>
                 </div>
                 <div class="form-field col-lg-6">
-                    <input id="tolerancia" class="input-text" type="number" step="any" name="tol" >
+                    <input id="tolerancia" class="input-text" type="text" name="tol" required>
                     <label for="tolerancia" class="label">Tolerancia deseada</label>
                 </div>
                 <div class="form-field col-lg-6">
-                    <input id="tolerancia" class="input-text" type="number" name="iteraciones" >
+                    <input id="tolerancia" class="input-text" type="text" name="iteraciones" required>
                     <label for="tolerancia" class="label">Iteraciones</label>
                 </div>
                 <div class="form-field col-lg-12 derecha">
-                    <input formaction="ResultPuntoFijo" class="submit-btn" type="submit" value="Calcular">
+                    <input class="submit-btn" type="submit">
                 </div>
             </form>
         </div>
