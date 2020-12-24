@@ -22,7 +22,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script  type="text/javascript">
      $(document).ready(function() {
-        var indice = 2
+        var indice = 3
             $("#add").click(function() {
                 var intId = $("#buildyourform div").length + 1;
                 var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + intId + "\"/>");
@@ -87,6 +87,9 @@
                             </div>
                             <div class="form-field col-lg-12">
                                 <input class="input-text" type="number" step="any" name="coef2" placeholder="Coef. X grado 1" required/>
+                            </div>
+                            <div class="form-field col-lg-12">
+                                <input class="input-number" type="number" step="any" name="coef3" placeholder="Coef. X grado 2" required/>
                             </div>
                             
                         </fieldset>
