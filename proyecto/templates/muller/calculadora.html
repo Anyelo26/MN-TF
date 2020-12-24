@@ -48,7 +48,7 @@
             <form  class="contact-form row"  method='POST'>
                 {% csrf_token %}
                 <div class="form-field col-lg-8">
-                    <input id="funcion" class="input-text" type="text" name="pol" required>
+                    <input id="funcion" class="input-text" type="text" name="pol" value="{{pol}}" required>
                     <label for="funcion" class="label">Polinomio</label>
                 </div>
                 <div class="form-field col-lg-4">

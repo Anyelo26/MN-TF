@@ -125,11 +125,11 @@ def Biseccion(request):     #TYPEMETHOD=1
         setRaices(raices)
         setMethod(1)
         setF(abc)
-        return render(request,'biseccion/resultado.html',{'resp':resp})
+        return render(request,'biseccion/resultado.html',{'resp':resp, 'pol':getF()})
     except ValueError:
         myError = {
             "error" :True,
-            "message": "No se permiten letras"
+            "message": "Revise los datos ingresados, intente nuevamente."
         }
         return render(request,'biseccion/resultado.html',context=myError)
 
@@ -146,11 +146,11 @@ def FalsaPosicion(request):  #TYPEMETHOD=2
         setRaices(raices)
         setMethod(2)
         setF(abc)
-        return render(request,'falsaposicion/resultado.html',{'resp':resp})
+        return render(request,'falsaposicion/resultado.html',{'resp':resp, 'pol':getF()})
     except ValueError:
         myError = {
             "error" :True,
-            "message": "No se permiten letras"
+            "message": "Revise los datos ingresados, intente nuevamente."
         }
         return render(request,'falsaposicion/resultado.html',context=myError)
     
@@ -170,7 +170,7 @@ def Newton(request):  #TYPEMETHOD=3
         setMethod(3)
         setF(abc)
 
-        return render(request,'newton/resultado.html',{'resp':resp})    
+        return render(request,'newton/resultado.html',{'resp':resp, 'pol':getF()})    
     except ValueError:
         myError = {
             "error" :True,
@@ -201,7 +201,7 @@ def PuntoFijo(request):  #TYPEMETHOD=4
         setRaices(raices)
         setMethod(4)
         setF(pol)    
-        return render(request,'puntofijo/resultado.html',{'resp':resp})
+        return render(request,'puntofijo/resultado.html',{'resp':resp, 'pol':getF()})
     except ValueError:
         myError = {
             "error" :True,
@@ -230,7 +230,7 @@ def Secante(request):       #TYPEMETHOD=5
         setRaices(raices)
         setMethod(5)
         setF(funcion)
-        return render(request,'secante/resultado.html',{'resp':resp})
+        return render(request,'secante/resultado.html',{'resp':resp, 'pol':getF()})
     except ValueError:
         myError = {
             "error" :True,
@@ -253,7 +253,7 @@ def Muller(request):       #TYPEMETHOD=6
         setRaices(raices)
         setMethod(6)
         setF(funcion)
-        return render(request,'muller/resultado.html',{'resp':resp})
+        return render(request,'muller/resultado.html',{'resp':resp, 'pol':getF()})
     except ValueError:
         myError = {
             "error" :True,
@@ -320,17 +320,17 @@ def graficar(request):
     script, div = components(p4)
     
     if getMethod()==1: 
-        return render(request, 'biseccion/grafica.html',{'script':script, 'div':div})
+        return render(request, 'biseccion/grafica.html',{'script':script, 'div':div, 'pol':getF()})
     elif getMethod()==2:
-        return render(request, 'falsaposicion/grafica.html',{'script':script, 'div':div})
+        return render(request, 'falsaposicion/grafica.html',{'script':script, 'div':div, 'pol':getF()})
     elif getMethod()==3:
-        return render(request, 'newton/grafica.html',{'script':script, 'div':div}) 
+        return render(request, 'newton/grafica.html',{'script':script, 'div':div, 'pol':getF()}) 
     elif getMethod()==4:
-        return render(request, 'puntofijo/grafica.html',{'script':script, 'div':div}) 
+        return render(request, 'puntofijo/grafica.html',{'script':script, 'div':div, 'pol':getF()}) 
     elif getMethod()==5:
-        return render(request, 'secante/grafica.html',{'script':script, 'div':div}) 
+        return render(request, 'secante/grafica.html',{'script':script, 'div':div, 'pol':getF()}) 
     elif getMethod()==6:
-        return render(request, 'muller/grafica.html',{'script':script, 'div':div}) 
+        return render(request, 'muller/grafica.html',{'script':script, 'div':div, 'pol':getF()}) 
     elif getMethod()==7:
         return render(request, 'bairstow/grafica.html',{'script':script, 'div':div}) 
 
@@ -363,17 +363,17 @@ def graficaInit(request):
     script, div = components(p4)
     
     if getMethod()==1: 
-        return render(request, 'biseccion/grafica.html',{'script':script, 'div':div})
+        return render(request, 'biseccion/grafica.html',{'script':script, 'div':div, 'pol':funcion})
     elif getMethod()==2:
-        return render(request, 'falsaposicion/grafica.html',{'script':script, 'div':div})
+        return render(request, 'falsaposicion/grafica.html',{'script':script, 'div':div, 'pol':funcion})
     elif getMethod()==3:
-        return render(request, 'newton/grafica.html',{'script':script, 'div':div}) 
+        return render(request, 'newton/grafica.html',{'script':script, 'div':div, 'pol':funcion}) 
     elif getMethod()==4:
-        return render(request, 'puntofijo/grafica.html',{'script':script, 'div':div}) 
+        return render(request, 'puntofijo/grafica.html',{'script':script, 'div':div, 'pol':funcion}) 
     elif getMethod()==5:
-        return render(request, 'secante/grafica.html',{'script':script, 'div':div}) 
+        return render(request, 'secante/grafica.html',{'script':script, 'div':div, 'pol':funcion}) 
     elif getMethod()==6:
-        return render(request, 'muller/grafica.html',{'script':script, 'div':div}) 
+        return render(request, 'muller/grafica.html',{'script':script, 'div':div, 'pol':funcion}) 
     elif getMethod()==7:
         return render(request, 'bairstow/grafica.html',{'script':script, 'div':div}) 
   
