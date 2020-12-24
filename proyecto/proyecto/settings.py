@@ -25,7 +25,7 @@ SECRET_KEY = 'h)m=f4of0^d-t3%n%7=2i6nmfqrrqlffnm+bf$*fts+^7u&)9@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [*]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'proyecto.urls'
@@ -76,11 +76,19 @@ WSGI_APPLICATION = 'proyecto.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'NumericalDB',
-    }
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': 'NumericalDB',
+#    }
+#}
+import  dj_database_url
+from decouple import config
+DATABASES ={
+    'default':dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
+    
 }
 
 
@@ -125,3 +133,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+
+#LES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage'
